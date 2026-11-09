@@ -1,0 +1,5096 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transporte de Medicamentos com Temperatura Controlada | BR Samor</title>
+  <meta name="description" content="Nova frota refrigerada da BR Samor: transporte de medicamentos de 2 °C a 8 °C e de 15 °C a 25 °C, com monitoramento 24h, autorização da Anvisa e segurança para carga de alto valor.">
+  <meta property="og:title" content="Transporte de Medicamentos com Temperatura Controlada | BR Samor">
+  <meta property="og:description" content="Temperatura controlada, carga protegida e entrega no prazo. Conheça a nova frota refrigerada da BR Samor.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="assets/images/caminhao-bau.webp">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!--
+    Página montada com componentes do Tegrus Design System:
+    header-simple · hero-split · stats-highlighted · services-grid (--pastel, base, --icon-box)
+    feature-split (base, --reverse) · steps-horizontal · faq-accordion (--split)
+    form-lead-capture · footer-full · atoms: buttons, inputs
+  -->
+  <style>
+    /* ══════════════════════════════════════════════════════════════
+       DS · tokens padrão (cores/tipografia sobrescritas abaixo)
+    ══════════════════════════════════════════════════════════════ */
+:root {
+  /* Marca (substituir por cliente) */
+  --color-primary:        #0066FF;
+  --color-primary-hover:  #0052CC;
+  --color-primary-light:  #EBF2FF;
+  --color-secondary:      #FF6B35;
+  --color-secondary-hover:#E55C2A;
+
+  /* Texto */
+  --color-text-strong:    #0A0A0A;
+  --color-text-body:      #333333;
+  --color-text-muted:     #666666;
+  --color-text-subtle:    #999999;
+  --color-text-inverse:   #FFFFFF;
+
+  /* Fundos */
+  --color-background:     #FFFFFF;
+  --color-background-alt: #F7F7F7;
+  --color-background-dark:#0A0A0A;
+
+  /* Estados */
+  --color-success:        #10B981;
+  --color-warning:        #F59E0B;
+  --color-error:          #EF4444;
+  --color-info:           #3B82F6;
+
+  /* Bordas */
+  --color-border:         #E5E5E5;
+  --color-border-strong:  #CCCCCC;
+
+  /* Overlay / sombra */
+  --color-overlay:        rgba(0, 0, 0, 0.5);
+}
+:root {
+  /* Famílias */
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* Escala de tamanhos (mobile-first; escale em breakpoints se necessário) */
+  --font-size-xs:   0.75rem;    /* 12px */
+  --font-size-sm:   0.875rem;   /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-lg:   1.125rem;   /* 18px */
+  --font-size-xl:   1.25rem;    /* 20px */
+  --font-size-2xl:  1.5rem;     /* 24px */
+  --font-size-3xl:  2rem;       /* 32px */
+  --font-size-4xl:  2.5rem;     /* 40px */
+  --font-size-5xl:  3rem;       /* 48px */
+  --font-size-6xl:  4rem;       /* 64px */
+
+  /* Pesos */
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Line heights */
+  --line-height-tight:   1.1;
+  --line-height-snug:    1.3;
+  --line-height-normal:  1.5;
+  --line-height-relaxed: 1.7;
+
+  /* Letter spacing */
+  --letter-spacing-tight:  -0.02em;
+  --letter-spacing-normal:  0;
+  --letter-spacing-wide:    0.05em;
+  --letter-spacing-wider:   0.1em;
+}
+/* Escala 4px — sequência: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128 */
+:root {
+  --space-xs:  0.25rem;   /*  4px */
+  --space-sm:  0.5rem;    /*  8px */
+  --space-md:  1rem;      /* 16px */
+  --space-lg:  1.5rem;    /* 24px */
+  --space-xl:  2rem;      /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --space-3xl: 4rem;      /* 64px */
+  --space-4xl: 6rem;      /* 96px */
+  --space-5xl: 8rem;      /* 128px */
+
+  /* Container */
+  --container-max:     1200px;
+  --container-padding: var(--space-lg);
+}
+/*
+  Breakpoints documentados como tokens de referência.
+  ⚠️ CSS não permite var() dentro de @media — use os valores numéricos nos media queries.
+  Valores aqui servem apenas de documentação e referência.
+*/
+:root {
+  --bp-sm:  480px;    /* Telefones grandes */
+  --bp-md:  768px;    /* Tablets — breakpoint principal mobile→tablet */
+  --bp-lg:  1024px;   /* Desktops pequenos — breakpoint tablet→desktop */
+  --bp-xl:  1280px;   /* Desktops */
+  --bp-2xl: 1536px;   /* Telas grandes */
+}
+
+/*
+  Guia de uso em componentes:
+  @media (min-width: 480px)  { ... }   → sm
+  @media (min-width: 768px)  { ... }   → md (mais comum)
+  @media (min-width: 1024px) { ... }   → lg
+  @media (min-width: 1280px) { ... }   → xl
+*/
+:root {
+  --radius-none:   0;
+  --radius-sm:     0.25rem;   /*  4px */
+  --radius-md:     0.5rem;    /*  8px */
+  --radius-lg:     0.75rem;   /* 12px */
+  --radius-xl:     1rem;      /* 16px */
+  --radius-2xl:    1.5rem;    /* 24px */
+  --radius-full:   9999px;    /* pill / círculo */
+}
+:root {
+  --shadow-none: none;
+  --shadow-xs:   0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md:   0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-lg:   0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl:   0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+  --shadow-2xl:  0 25px 50px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       TOKENS — BR Samor (adaptação de tokens/*.css do design system)
+       Fonte: site oficial home.brsamor.com.br (tema HubSpot Lynton)
+    ══════════════════════════════════════════════════════════════ */
+    :root {
+      /* Marca — laranja BR Samor.
+         #F05A22 é o laranja oficial, mas tem só 3,4:1 de contraste com branco.
+         Para textos, ícones e botões usamos um tom mais escuro (5,2:1, WCAG AA).
+         O laranja oficial fica reservado para detalhes decorativos. */
+      --color-primary:        #C2410C;
+      --color-primary-hover:  #9A3412;
+      --color-primary-light:  #FDE7DC;
+      --color-brand-orange:   #F05A22;
+
+      /* Azul-marinho BR Samor ("SAMOR" no logo) */
+      --color-secondary:       #113852;
+      --color-secondary-hover: #0B2638;
+
+      /* Texto */
+      --color-text-strong:  #113852;
+      --color-text-body:    #2E4558;
+      --color-text-muted:   #5B6B75;
+      --color-text-subtle:  #6B7A84;
+      --color-text-inverse: #FFFFFF;
+
+      /* Fundos */
+      --color-background:      #FFFFFF;
+      --color-background-alt:  #F4F7FA;
+      --color-background-dark: #0B2638;
+
+      /* Tons de apoio da página farma (frio / quente) */
+      --color-ice:        #E3F0F8;
+      --color-ice-strong: #1F6F99;
+      --color-peach:      #FFF1E8;
+      --color-mist:       #EEF2F5;
+
+      /* Estados */
+      --color-success: #15803D;
+      --color-warning: #B45309;
+      --color-error:   #B91C1C;
+      --color-info:    #1F6F99;
+
+      /* Bordas */
+      --color-border:        #DCE3E8;
+      --color-border-strong: #B7C3CB;
+      --color-overlay:       rgba(11, 38, 56, 0.6);
+
+      /* Tipografia — Archivo é a fonte do site oficial */
+      --font-heading: 'Archivo', system-ui, sans-serif;
+      --font-body:    'Archivo', system-ui, sans-serif;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · base/reset.css
+    ══════════════════════════════════════════════════════════════ */
+/*
+  reset.css — Reset moderno inspirado em Andy Bell (https://piccalil.li/blog/a-modern-css-reset/)
+  Escopo global intencional. Não edite por componente.
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  hanging-punctuation: first last;
+  color-scheme: light dark;
+}
+
+body {
+  min-height: 100svh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+ul[role="list"], ol[role="list"] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Remove animações para usuários que preferem movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · base/base.css
+    ══════════════════════════════════════════════════════════════ */
+/*
+  base.css — Estilos base globais de elementos HTML.
+  Depende de tokens/ estar carregado antes.
+  Não adicione classes aqui — use seletores de elemento apenas.
+*/
+
+html {
+  font-size: 100%; /* 16px base */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-body);
+  background-color: var(--color-background);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-strong);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl);  }
+h5 { font-size: var(--font-size-lg);  }
+h6 { font-size: var(--font-size-base);}
+
+p {
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-body);
+}
+
+/* Links base (sem classe) */
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Código */
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+}
+
+/* Imagens */
+img {
+  height: auto;
+}
+
+/* Formulários base */
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Linha horizontal */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin-block: var(--space-xl);
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · base/utilities.css
+    ══════════════════════════════════════════════════════════════ */
+/*
+  utilities.css — Classes utilitárias mínimas de uso global.
+  Apenas o estritamente necessário. Não amplie sem necessidade real.
+*/
+
+/* Container padrão */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* Visualmente escondido mas acessível a leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Desfaz sr-only quando o elemento recebe foco (ex: skip links) */
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Skip to content (acessibilidade — deve ser o primeiro link da página) */
+.skip-link {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  z-index: 9999;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Texto truncado em uma linha */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Centralização com flexbox */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · components/atoms/buttons/style.css
+    ══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────
+   button — atom
+   Variantes : filled | outline | link | glass | icon-circle
+   Tamanhos  : lg | md | sm
+   Layouts   : texto | icon-only
+   Modifiers : pill | inverse
+   ───────────────────────────────────────── */
+
+/* ── Base ── */
+.button {
+  width: 100%;         /* mobile: ocupa toda a largura disponível */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition:
+    background-color 0.15s ease,
+    border-color     0.15s ease,
+    color            0.15s ease,
+    opacity          0.15s ease;
+}
+
+/* ── Tamanhos ── */
+.button--lg {
+  min-height: 56px;
+  padding-inline: var(--space-xl);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-xl);
+}
+
+.button--md {
+  min-height: 48px;
+  padding-inline: var(--space-lg);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-lg);
+}
+
+.button--sm {
+  min-height: 36px;
+  padding-inline: var(--space-md);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-md);
+}
+
+/* ── Ícone interno ── */
+.button__icon {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.button--lg .button__icon { width: 20px; height: 20px; }
+.button--md .button__icon { width: 18px; height: 18px; }
+.button--sm .button__icon { width: 16px; height: 16px; }
+
+/* ── Icon-only: quadrado com dimensão = min-height ── */
+.button--icon-only.button--lg {
+  width: 56px;
+  padding-inline: 0;
+}
+
+.button--icon-only.button--md {
+  width: 48px;
+  padding-inline: 0;
+}
+
+.button--icon-only.button--sm {
+  width: 36px;
+  padding-inline: 0;
+}
+
+/* ─────────────────────────────────────────
+   Variante: FILLED
+   ───────────────────────────────────────── */
+.button--filled {
+  background-color: var(--color-text-strong);
+  color: var(--color-text-inverse);
+  border-color: var(--color-text-strong);
+}
+
+.button--filled:hover:not(:disabled):not([aria-disabled="true"]) {
+  opacity: 0.82;
+}
+
+.button--filled:active:not(:disabled):not([aria-disabled="true"]) {
+  opacity: 0.65;
+}
+
+.button--filled:disabled,
+.button--filled[aria-disabled="true"] {
+  background-color: var(--color-text-muted);
+  border-color: var(--color-text-muted);
+  color: var(--color-text-inverse);
+}
+
+/* ─────────────────────────────────────────
+   Variante: OUTLINE
+   ───────────────────────────────────────── */
+.button--outline {
+  background-color: transparent;
+  color: var(--color-text-strong);
+  border-color: var(--color-text-strong);
+}
+
+.button--outline:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--color-background-alt);
+}
+
+.button--outline:active:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--color-border);
+}
+
+.button--outline:disabled,
+.button--outline[aria-disabled="true"] {
+  color: var(--color-text-subtle);
+  border-color: var(--color-border-strong);
+}
+
+/* ─────────────────────────────────────────
+   Variante: LINK (sem fundo, sem borda)
+   ───────────────────────────────────────── */
+.button--link {
+  width: fit-content;  /* link nunca estica para 100% — é tratado como texto */
+  background-color: transparent;
+  color: var(--color-text-strong);
+  border-color: transparent;
+  padding-inline: 0;
+  min-height: auto;
+}
+
+.button--link:hover:not(:disabled):not([aria-disabled="true"]) {
+  opacity: 0.65;
+}
+
+.button--link:active:not(:disabled):not([aria-disabled="true"]) {
+  opacity: 0.45;
+}
+
+.button--link:disabled,
+.button--link[aria-disabled="true"] {
+  color: var(--color-text-subtle);
+}
+
+/* ─────────────────────────────────────────
+   Modifier: INVERSE
+   Inverte o esquema de cor para fundos escuros
+   (dark background, cor de marca como fundo, etc.)
+   Combinar: --filled--inverse | --outline--inverse | --link--inverse
+   ───────────────────────────────────────── */
+
+/* Filled inverse: fundo branco, texto escuro */
+.button--filled.button--inverse {
+  background-color: var(--color-text-inverse);
+  color: var(--color-text-strong);
+  border-color: var(--color-text-inverse);
+}
+
+.button--filled.button--inverse:hover:not(:disabled):not([aria-disabled="true"]) {
+  opacity: 0.88;
+}
+
+.button--filled.button--inverse:active:not(:disabled):not([aria-disabled="true"]) {
+  opacity: 0.72;
+}
+
+.button--filled.button--inverse:disabled,
+.button--filled.button--inverse[aria-disabled="true"] {
+  background-color: var(--color-border-strong);
+  border-color: var(--color-border-strong);
+  color: var(--color-text-muted);
+}
+
+/* Outline inverse: borda + texto brancos, fundo transparente */
+.button--outline.button--inverse {
+  color: var(--color-text-inverse);
+  border-color: var(--color-text-inverse);
+}
+
+.button--outline.button--inverse:hover:not(:disabled):not([aria-disabled="true"]) {
+  /* overlay semi-transparente branco — estrutural, não é cor de marca */
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.button--outline.button--inverse:active:not(:disabled):not([aria-disabled="true"]) {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.button--outline.button--inverse:disabled,
+.button--outline.button--inverse[aria-disabled="true"] {
+  color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Link inverse: texto branco */
+.button--link.button--inverse {
+  color: var(--color-text-inverse);
+}
+
+.button--link.button--inverse:disabled,
+.button--link.button--inverse[aria-disabled="true"] {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Foco inverse: ring branco (para contraste sobre fundos escuros) */
+.button--inverse:focus-visible {
+  outline-color: var(--color-text-inverse);
+}
+
+/* ─────────────────────────────────────────
+   Modifier: PILL
+   Aplica border-radius circular sobre qualquer tamanho.
+   Combinar com: --filled | --outline | --glass
+   ───────────────────────────────────────── */
+.button--pill {
+  border-radius: 9999px;
+}
+
+
+/* ─────────────────────────────────────────
+   Variante: GLASS
+   Fundo translúcido com blur — para uso sobre
+   imagens ou fundos coloridos.
+   ───────────────────────────────────────── */
+.button--glass {
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--color-text-strong);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.button--glass:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* ─────────────────────────────────────────
+   Variante: ICON-CIRCLE
+   Botão circular fixo 40×40 com borda — para
+   links de ação em cards (ex: seta → no canto).
+   Não combinar com modificadores de tamanho.
+   ───────────────────────────────────────── */
+.button--icon-circle {
+  width: 40px;
+  height: 40px;
+  min-height: unset;
+  padding-inline: 0;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-border-strong);
+  background: transparent;
+  color: var(--color-text-body);
+  flex-shrink: 0;
+}
+
+.button--icon-circle:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.button--icon-circle svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+
+/* ─────────────────────────────────────────
+   Estado desabilitado — base
+   ───────────────────────────────────────── */
+.button:disabled,
+.button[aria-disabled="true"] {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* aria-disabled em <a> mantém pointer-events para Tab */
+a.button[aria-disabled="true"] {
+  pointer-events: none;
+  tabindex: -1;
+}
+
+/* ─────────────────────────────────────────
+   Foco acessível
+   ───────────────────────────────────────── */
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: inherit;
+}
+
+/* ─────────────────────────────────────────
+   Responsividade
+   480px (--bp-sm): botões voltam a ter largura natural.
+   Icon-only não precisa de override aqui — a largura fixa
+   (56/48/36px) já tem especificidade maior que .button.
+   ───────────────────────────────────────── */
+@media (min-width: 480px) {
+  .button {
+    width: max-content;
+  }
+
+  /* icon-circle mantém dimensão fixa em todos os breakpoints */
+  .button--icon-circle {
+    width: 40px;
+  }
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · components/atoms/inputs/style.css
+    ══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────
+   input-field — atom
+   Campos   : text | email | textarea | select
+   Variantes: input-check (checkbox) | input-radio (radio)
+   Estados  : hover | focus-visible | invalid | disabled
+   Inspirado no padrão de formulários minimalistas
+   (Stripe Elements, Linear): borda fina, foco com
+   anel suave, label sempre acima do campo.
+   ───────────────────────────────────────── */
+
+/* ── Wrapper ── */
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.input-field__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-strong);
+}
+
+.input-field__optional {
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-subtle);
+}
+
+/* ── Campo (input / textarea / select) ── */
+.input-field__control {
+  width: 100%;
+  min-height: 48px;
+  padding-inline: var(--space-md);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-strong);
+  background-color: var(--color-background);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-field__control::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.input-field__control:hover {
+  border-color: var(--color-border-strong);
+}
+
+.input-field__control:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.input-field__control:disabled {
+  background-color: var(--color-background-alt);
+  color: var(--color-text-subtle);
+  cursor: not-allowed;
+}
+
+textarea.input-field__control {
+  min-height: 128px;
+  padding-block: var(--space-md);
+  line-height: var(--line-height-relaxed);
+  resize: vertical;
+}
+
+select.input-field__control {
+  appearance: none;
+  padding-right: var(--space-2xl);
+  background-repeat: no-repeat;
+  background-position: right var(--space-md) center;
+  background-size: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  cursor: pointer;
+}
+
+/* ── Texto de apoio / erro ── */
+.input-field__hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.input-field__error {
+  display: none;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-error);
+}
+
+.input-field__error svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Estado inválido ── */
+.input-field--invalid .input-field__control {
+  border-color: var(--color-error);
+}
+
+.input-field--invalid .input-field__control:focus-visible {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.input-field--invalid .input-field__hint {
+  display: none;
+}
+
+.input-field--invalid .input-field__error {
+  display: flex;
+}
+
+/* ─────────────────────────────────────────
+   Checkbox — input-check
+   ───────────────────────────────────────── */
+.input-check {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-body);
+  cursor: pointer;
+}
+
+.input-check__input {
+  position: absolute;
+  inset: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.input-check__box {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-block-start: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-background);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.input-check__box svg {
+  width: 13px;
+  height: 13px;
+  color: var(--color-text-inverse);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.input-check__input:checked ~ .input-check__box {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.input-check__input:checked ~ .input-check__box svg {
+  opacity: 1;
+}
+
+.input-check__input:focus-visible ~ .input-check__box {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────
+   Radio — input-radio
+   ───────────────────────────────────────── */
+.input-radio {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-body);
+  cursor: pointer;
+}
+
+.input-radio__input {
+  position: absolute;
+  inset: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.input-radio__box {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-block-start: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  background-color: var(--color-background);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.input-radio__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-text-inverse);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.input-radio__input:checked ~ .input-radio__box {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.input-radio__input:checked ~ .input-radio__box .input-radio__dot {
+  opacity: 1;
+}
+
+.input-radio__input:focus-visible ~ .input-radio__box {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ── Grupo de opções (checkbox/radio em lista) ── */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · components/sections/headers/header-simple/style.css
+    ══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────
+   header-simple — section
+   Logo + nav links + ícones opcionais + CTA.
+   Modifier --dark: fundo escuro (ex: EscolaWeb).
+   Hamburger responsivo no mobile (<1024px).
+   ───────────────────────────────────────── */
+
+/* ═══════════════════════════════════════
+   BASE (todos os tamanhos)
+═══════════════════════════════════════ */
+
+.header-simple {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-simple__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  height: 64px;
+}
+
+/* ── Logo ── */
+.header-simple__logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header-simple__logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+/* ── Nav (oculto no mobile) ── */
+.header-simple__nav {
+  display: none;
+}
+
+.header-simple__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header-simple__link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-body);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: color 0.15s ease, background-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.header-simple__link:hover {
+  color: var(--color-text-strong);
+  background-color: var(--color-background-alt);
+}
+
+.header-simple__link--active {
+  color: var(--color-text-strong);
+  font-weight: var(--font-weight-semibold);
+}
+
+.header-simple__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ── Área de ações (ícones + CTA + hamburger) ── */
+.header-simple__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+/* Botão de ícone (WhatsApp, etc.) */
+.header-simple__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-body);
+  transition: background-color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.header-simple__icon-btn:hover {
+  background-color: var(--color-background-alt);
+}
+
+.header-simple__icon-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/*
+  CTA wrap — oculto no mobile para não quebrar o header.
+  O botão aparece no painel mobile no lugar correto.
+*/
+.header-simple__cta-wrap {
+  display: none;
+}
+
+/* ── Hamburger (visível apenas no mobile) ── */
+.header-simple__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  padding: var(--space-xs);
+  flex-shrink: 0;
+}
+
+.header-simple__toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.header-simple__toggle-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-text-strong);
+  border-radius: var(--radius-full);
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  transform-origin: center;
+}
+
+/* Hamburger → X quando aberto */
+.header-simple__toggle[aria-expanded="true"] .header-simple__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.header-simple__toggle[aria-expanded="true"] .header-simple__toggle-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.header-simple__toggle[aria-expanded="true"] .header-simple__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Painel de nav mobile ── */
+.header-simple__mobile-panel {
+  display: none;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  padding: var(--space-lg);
+}
+
+.header-simple__mobile-panel--open {
+  display: block;
+}
+
+.header-simple__mobile-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header-simple__mobile-link {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-body);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: background-color 0.15s ease;
+}
+
+.header-simple__mobile-link:hover {
+  background-color: var(--color-background-alt);
+}
+
+.header-simple__mobile-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+}
+
+/* Ações dentro do painel mobile */
+.header-simple__mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+
+/* ═══════════════════════════════════════
+   DESKTOP (1024px+): exibe nav, oculta hamburger
+═══════════════════════════════════════ */
+@media (min-width: 1024px) {
+
+  .header-simple__nav {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .header-simple__list {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .header-simple__cta-wrap {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .header-simple__toggle {
+    display: none;
+  }
+
+  /* Painel nunca aparece no desktop */
+  .header-simple__mobile-panel,
+  .header-simple__mobile-panel--open {
+    display: none;
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   Modifier: --dark (fundo escuro)
+   Ex: EscolaWeb
+═══════════════════════════════════════ */
+
+.header-simple--dark {
+  background-color: var(--color-background-dark);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.header-simple--dark .header-simple__link {
+  color: var(--color-text-inverse);
+}
+
+.header-simple--dark .header-simple__link:hover {
+  color: var(--color-text-inverse);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.header-simple--dark .header-simple__link--active {
+  color: var(--color-text-inverse);
+}
+
+.header-simple--dark .header-simple__icon-btn {
+  color: var(--color-text-inverse);
+}
+
+.header-simple--dark .header-simple__icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.header-simple--dark .header-simple__toggle-bar {
+  background-color: var(--color-text-inverse);
+}
+
+.header-simple--dark .header-simple__mobile-panel {
+  background-color: var(--color-background-dark);
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.header-simple--dark .header-simple__mobile-link {
+  color: var(--color-text-inverse);
+}
+
+.header-simple--dark .header-simple__mobile-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.header-simple--dark .header-simple__mobile-actions {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ═══════════════════════════════════════
+   MODIFIER --floating
+   Header "flutuante": card com borda arredondada,
+   background glass, shadow — não toca as bordas.
+═══════════════════════════════════════ */
+
+.header-simple--floating {
+  background-color: transparent;
+  border-bottom: none;
+  padding: var(--space-sm) var(--space-xl);
+  top: var(--space-sm);
+}
+
+/* Bar vira um card flutuante */
+.header-simple--floating .header-simple__bar {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 18px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 8px 28px rgba(0, 0, 0, 0.1);
+  height: 52px;
+  padding-inline: var(--space-md);
+  max-width: 920px;
+  margin-inline: auto;
+}
+
+/* Painel mobile: continua o card */
+.header-simple--floating .header-simple__mobile-panel {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 0 0 18px 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  margin-inline: var(--space-xl);
+}
+
+/* Logo: caixa escura */
+.header-simple__logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: var(--color-text-strong);
+  color: var(--color-text-inverse);
+  flex-shrink: 0;
+}
+
+.header-simple__logo-box svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Controles extras: dark mode + idioma (visíveis apenas desktop) */
+.header-simple__extras {
+  display: none;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-shrink: 0;
+}
+
+/* Botão de controle: pill com borda */
+.header-simple__control {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px var(--space-sm);
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  cursor: pointer;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-body);
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.header-simple__control:hover {
+  background-color: var(--color-background-alt);
+}
+
+.header-simple__control svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .header-simple__extras {
+    display: flex;
+  }
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · components/sections/heroes/hero-split/style.css
+    ══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────
+   hero-split — section
+   Dois estilos de conteúdo à esquerda:
+     • com checklist  (Style=01)
+     • com descrição  (Style=02)
+   Imagem sempre à direita (desktop) / abaixo (mobile).
+
+   Modifier:
+     • --reverse: inverte colunas — imagem esq., conteúdo dir.
+   ───────────────────────────────────────── */
+
+/* ═══════════════════════════════════════
+   MOBILE FIRST — coluna única
+═══════════════════════════════════════ */
+
+.hero-split {
+  background-color: var(--color-background);
+  padding-block: var(--space-3xl);
+}
+
+/* Grid interno — mobile: 1 coluna */
+.hero-split__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+/* ── Imagem ── */
+.hero-split__media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-border); /* fallback */
+}
+
+.hero-split__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── Título ── */
+.hero-split__title {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-4xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-strong);
+  margin-block-end: var(--space-xl);
+}
+
+/* ── Descrição (Style=02) ── */
+.hero-split__description {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-body);
+  max-width: 52ch;
+  margin-block-end: var(--space-xl);
+}
+
+/* ── Checklist (Style=01) ── */
+.hero-split__checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-block-end: var(--space-xl);
+  list-style: none;
+  padding: 0;
+}
+
+.hero-split__check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-body);
+}
+
+.hero-split__check-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px; /* alinha verticalmente com a primeira linha do texto */
+}
+
+/* ── Ações ── */
+.hero-split__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+
+/* ═══════════════════════════════════════
+   DESKTOP (768px+) — duas colunas iguais
+═══════════════════════════════════════ */
+@media (min-width: 768px) {
+
+  .hero-split {
+    padding-block: var(--space-4xl);
+  }
+
+  .hero-split__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: stretch; /* colunas com mesma altura */
+  }
+
+  /* Imagem preenche toda a altura da célula no grid */
+  .hero-split__media {
+    aspect-ratio: auto;  /* libera ratio fixo do mobile */
+    min-height: 380px;
+  }
+
+  .hero-split__title {
+    font-size: clamp(var(--font-size-3xl), 3vw, var(--font-size-4xl));
+  }
+
+  /* Conteúdo centralizado verticalmente */
+  .hero-split__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   DESKTOP LARGE (1024px+)
+═══════════════════════════════════════ */
+@media (min-width: 1024px) {
+  .hero-split__inner {
+    gap: var(--space-4xl);
+  }
+
+  .hero-split__media {
+    min-height: 440px;
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   MODIFIER --reverse
+   Inverte a ordem: imagem esq., conteúdo dir.
+   (Style=03)
+═══════════════════════════════════════ */
+@media (min-width: 768px) {
+  .hero-split--reverse .hero-split__content { order: 2; }
+  .hero-split--reverse .hero-split__media   { order: 1; }
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · components/sections/stats/stats-highlighted/style.css
+    ══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────
+   stats-highlighted — section
+   Seção de métricas com layout split:
+   imagens de clientes (esq.) + stats grandes (dir.).
+
+   Variantes:
+     • Base: 2 imagens empilhadas + 4 métricas + rodapé CTA
+   ───────────────────────────────────────── */
+
+.stats-highlighted {
+  padding-block: var(--space-4xl);
+  background-color: var(--color-background);
+}
+
+/* Grid principal: 1 col mobile → 2 col desktop */
+.stats-highlighted__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+/* ══════════════════════════════
+   COLUNA DE MÍDIA (esquerda)
+══════════════════════════════ */
+
+.stats-highlighted__media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  align-items: start;
+}
+
+/* Item de imagem: container relativo para o label */
+.stats-highlighted__media-item {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-border);
+}
+
+/* Imagem principal: mais alta (coluna esq.) */
+.stats-highlighted__media-item--primary .stats-highlighted__media-img {
+  aspect-ratio: 3 / 4;
+}
+
+/* Imagem secundária: mais baixa (coluna dir.) */
+.stats-highlighted__media-item--secondary .stats-highlighted__media-img {
+  aspect-ratio: 4 / 5;
+}
+
+.stats-highlighted__media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Chip com nome do cliente sobreposto na imagem */
+.stats-highlighted__media-label {
+  position: absolute;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  background-color: var(--color-background);
+  color: var(--color-text-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 9999px;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════
+   COLUNA DE CONTEÚDO (direita)
+══════════════════════════════ */
+
+.stats-highlighted__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.stats-highlighted__title {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-strong);
+}
+
+/* ── Lista de métricas ── */
+.stats-highlighted__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-highlighted__stat {
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-xl);
+}
+
+.stats-highlighted__stat:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Linha com número grande + label inline */
+.stats-highlighted__stat-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-block-end: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.stats-highlighted__stat-number {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-4xl));
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  color: var(--color-text-strong);
+  letter-spacing: -0.02em;
+}
+
+.stats-highlighted__stat-label {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+}
+
+.stats-highlighted__stat-body {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+}
+
+/* ── Rodapé: texto + CTA ── */
+.stats-highlighted__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  padding-block-start: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.stats-highlighted__footer-text {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  max-width: 52ch;
+}
+
+
+/* ═══════════════════════════════════════
+   DESKTOP (≥ 768px): 2 colunas iguais
+═══════════════════════════════════════ */
+@media (min-width: 768px) {
+  .stats-highlighted__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   MOBILE (< 640px)
+═══════════════════════════════════════ */
+@media (max-width: 639px) {
+  .stats-highlighted {
+    padding-block: var(--space-3xl);
+  }
+
+  .stats-highlighted__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · components/sections/services/services-grid/style.css
+    ══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────
+   services-grid — section
+   Grade de cards de serviços/features.
+
+   Variantes:
+     • Base:        cards brancos, ícone + título + corpo + link-seta-círculo
+     • --pastel:    cards com fundo pastel colorido por posição, link-texto
+     • --icon-box:  layout horizontal, ícone em caixa colorida, título colorido
+     • --bento:     grid assimétrico (featured + mini-grid + banner)
+     • --centered:  4 colunas, conteúdo centralizado, ícone em caixa, CTA card
+     • --circular:  media circular + texto centralizado + CTA rodapé
+     • --bleed:     header split 2-col + 4-col grid, imagem/emoji vaza acima do card
+   ───────────────────────────────────────── */
+
+/* ═══════════════════════════════════════
+   BASE
+═══════════════════════════════════════ */
+
+.services-grid {
+  padding-block: var(--space-4xl);
+  background-color: var(--color-background-alt);
+}
+
+/* ── Cabeçalho ── */
+.services-grid__header {
+  text-align: center;
+  margin-block-end: var(--space-3xl);
+}
+
+.services-grid__eyebrow {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-block-end: var(--space-sm);
+}
+
+.services-grid__title {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-4xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-strong);
+  margin-block-end: var(--space-md);
+}
+
+.services-grid__description {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  max-width: 65ch;
+  margin-inline: auto;
+}
+
+/* ── Grade principal ── */
+.services-grid__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+/* ── Card base ── */
+.services-grid__card {
+  background-color: var(--color-background);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ── Ícone (linha genérica) ── */
+.services-grid__icon-wrap {
+  width: 44px;
+  height: 44px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.services-grid__icon-wrap svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Textos ── */
+.services-grid__card-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-strong);
+  line-height: var(--line-height-snug);
+}
+
+.services-grid__card-body {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  flex: 1;
+}
+
+/* ── Link com seta em círculo (base) ── */
+.services-grid__card-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-border-strong);
+  color: var(--color-text-body);
+  text-decoration: none;
+  align-self: flex-end;
+  margin-block-start: auto;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.services-grid__card-link:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.services-grid__card-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.services-grid__card-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Rodapé com CTA ── */
+.services-grid__footer {
+  display: flex;
+  justify-content: center;
+  margin-block-start: var(--space-3xl);
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --pastel
+   Cards com fundo pastel único por posição.
+   Link texto + seta embaixo.
+═══════════════════════════════════════ */
+
+.services-grid--pastel {
+  background-color: var(--color-background);
+}
+
+.services-grid--pastel .services-grid__card {
+  background-color: #F0E6FF; /* lavanda — sobrescrito por nth-child */
+}
+
+.services-grid--pastel .services-grid__card:nth-child(1) { background-color: #F0E6FF; }
+.services-grid--pastel .services-grid__card:nth-child(2) { background-color: #FFE8DC; }
+.services-grid--pastel .services-grid__card:nth-child(3) { background-color: #FFF2D8; }
+.services-grid--pastel .services-grid__card:nth-child(4) { background-color: #E8EDFF; }
+
+.services-grid--pastel .services-grid__icon-wrap {
+  color: var(--color-text-strong);
+}
+
+/* Link texto (ex: Saiba mais →) */
+.services-grid__card-link-text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-strong);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--color-text-strong);
+  padding-block-end: 2px;
+  align-self: flex-start;
+  margin-block-start: auto;
+  transition: opacity 0.15s ease;
+}
+
+.services-grid__card-link-text:hover {
+  opacity: 0.65;
+}
+
+.services-grid__card-link-text svg {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --icon-box
+   Layout horizontal: ícone em caixa colorida | texto.
+   Título colorido (cor primária). CTA no rodapé.
+═══════════════════════════════════════ */
+
+.services-grid--icon-box {
+  background-color: var(--color-background);
+}
+
+.services-grid--icon-box .services-grid__title {
+  color: var(--color-primary);
+}
+
+.services-grid--icon-box .services-grid__card {
+  background-color: var(--color-background-alt);
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+.services-grid__icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  flex-shrink: 0;
+}
+
+.services-grid__icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.services-grid__card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex: 1;
+}
+
+.services-grid--icon-box .services-grid__card-title {
+  color: var(--color-primary);
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --bento
+   Grid assimétrico: card featured (tall) |
+   mini-grid 2×2 + banner wide.
+═══════════════════════════════════════ */
+
+.services-grid--bento {
+  background-color: var(--color-background);
+}
+
+.services-grid__bento-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+
+/* Featured: tall, com imagem de fundo */
+.services-grid__card--bento-featured {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-alt);
+  min-height: 340px;
+  padding: 0;
+  gap: 0;
+}
+
+.services-grid__card--bento-featured img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+/* Mini-grid: 2×2 de cards com ícone */
+.services-grid__bento-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.services-grid__bento-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.services-grid__card--bento-mini {
+  padding: var(--space-lg);
+  gap: var(--space-sm);
+  background-color: var(--color-background-alt);
+}
+
+.services-grid__card--bento-mini .services-grid__icon-wrap {
+  width: 36px;
+  height: 36px;
+}
+
+.services-grid__card--bento-mini .services-grid__card-title {
+  font-size: var(--font-size-sm);
+}
+
+.services-grid__card--bento-mini .services-grid__card-body {
+  font-size: var(--font-size-xs);
+}
+
+/* Wide banner: com imagem de fundo */
+.services-grid__card--bento-wide {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-alt);
+  min-height: 160px;
+  padding: 0;
+  gap: 0;
+}
+
+.services-grid__card--bento-wide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+/* Overlay de texto sobre imagem (featured + wide) */
+.services-grid__card-overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-xl);
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  min-height: inherit;
+}
+
+.services-grid__card-overlay .services-grid__card-title {
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-lg);
+}
+
+.services-grid__card-overlay .services-grid__card-body {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--font-size-sm);
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --centered
+   4 colunas, conteúdo centralizado, ícone em caixa, CTA card.
+═══════════════════════════════════════ */
+
+.services-grid--centered .services-grid__card {
+  text-align: center;
+  align-items: center;
+}
+
+/* Ícone em caixa arredondada */
+.services-grid--centered .services-grid__icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-grid--centered .services-grid__icon-wrap svg {
+  width: 24px;
+  height: 24px;
+}
+
+.services-grid--centered .services-grid__card-title {
+  color: var(--color-primary);
+}
+
+/* Último card = CTA (sem ícone, sem body, só título + botão) */
+.services-grid__card--cta {
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+  background-color: transparent;
+}
+
+.services-grid__card--cta .services-grid__card-title {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --circular
+   Media circular + texto centralizado + CTA no rodapé.
+═══════════════════════════════════════ */
+
+.services-grid--circular {
+  background-color: var(--color-background);
+}
+
+.services-grid--circular .services-grid__card {
+  text-align: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.services-grid__circle-media {
+  width: 120px;
+  height: 120px;
+  border-radius: 9999px;
+  overflow: hidden;
+  background-color: var(--color-background-alt);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-grid__circle-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.services-grid--circular .services-grid__card-title {
+  display: none; /* variante sem título — apenas corpo */
+}
+
+.services-grid--circular .services-grid__card-body {
+  font-size: var(--font-size-sm);
+  max-width: 28ch;
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --bleed
+   Header 2-col split + 4-col grid + imagem
+   que vaza (overflow) acima de cada card.
+   (Amenities / Features numerados)
+═══════════════════════════════════════ */
+
+/* Fundo creme quente — característico da variante */
+.services-grid--bleed {
+  background-color: #F5EFE2;
+}
+
+/* Header: empilhado no mobile, 2-col no desktop */
+.services-grid--bleed .services-grid__header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  text-align: left;
+  margin-block-end: var(--space-2xl);
+}
+
+.services-grid--bleed .services-grid__eyebrow {
+  color: var(--color-primary);
+  display: block;
+  margin-block-end: var(--space-sm);
+}
+
+.services-grid--bleed .services-grid__title {
+  text-align: left;
+  font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-4xl));
+  line-height: var(--line-height-tight);
+}
+
+.services-grid--bleed .services-grid__description {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  margin-inline: 0;
+  max-width: 52ch;
+  align-self: end;
+}
+
+/* Grid: padding-top acomoda o bleed da primeira linha */
+.services-grid--bleed .services-grid__list {
+  padding-block-start: var(--space-3xl); /* espaço para a imagem da 1ª row */
+  row-gap: var(--space-3xl);             /* espaço entre rows para a imagem não cobrir o card acima */
+  column-gap: var(--space-md);
+  align-items: start;
+}
+
+/* Card: overflow visible é o que permite o bleed */
+.services-grid--bleed .services-grid__card {
+  position: relative;
+  overflow: visible;
+  padding: var(--space-xl);
+  padding-block-start: var(--space-3xl); /* espaço interno para a metade inferior da imagem */
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  gap: var(--space-sm);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.services-grid--bleed .services-grid__card:hover {
+  box-shadow: 0 10px 32px rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.06);
+  transform: translateY(-4px);
+}
+
+/* ── Imagem que vaza: posicionada no topo esq. do card,
+      metade acima da borda via translateY(-50%) ── */
+.services-grid__bleed-img {
+  position: absolute;
+  top: 0;
+  left: var(--space-lg);
+  transform: translateY(-50%);
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Variante com emoji em vez de <img> */
+.services-grid__bleed-emoji {
+  position: absolute;
+  top: 0;
+  left: var(--space-lg);
+  transform: translateY(-50%);
+  font-size: 64px;
+  line-height: 1;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.13));
+}
+
+/* ── Número #01, #02 ... no canto superior direito ── */
+.services-grid__card-number {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-lg);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-border-strong);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  font-family: var(--font-heading);
+  opacity: 0.7;
+}
+
+/* Textos dos cards */
+.services-grid--bleed .services-grid__card-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-strong);
+  line-height: var(--line-height-snug);
+}
+
+.services-grid--bleed .services-grid__card-body {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+
+/* ═══════════════════════════════════════
+   TABLET (≥ 640px): 2 colunas
+═══════════════════════════════════════ */
+@media (min-width: 640px) {
+
+  .services-grid__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Bento: desktop layout ativo */
+  .services-grid__bento-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .services-grid__card--bento-featured {
+    grid-row: 1 / 3;
+    min-height: 480px;
+  }
+
+  .services-grid__card--bento-wide {
+    min-height: 180px;
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   DESKTOP (≥ 1024px): 3 ou 4 colunas
+═══════════════════════════════════════ */
+@media (min-width: 1024px) {
+
+  /* Base e icon-box: 3 colunas */
+  .services-grid__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Pastel: 4 colunas, alinha pelo topo (staggered natural) */
+  .services-grid--pastel .services-grid__list {
+    grid-template-columns: repeat(4, 1fr);
+    align-items: start;
+  }
+
+  /* Centered: 4 colunas */
+  .services-grid--centered .services-grid__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Circular: 3 colunas */
+  .services-grid--circular .services-grid__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Bleed: 4 colunas + header 2-col */
+  .services-grid--bleed .services-grid__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .services-grid--bleed .services-grid__header {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: end;
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   MOBILE (< 640px)
+═══════════════════════════════════════ */
+@media (max-width: 639px) {
+
+  .services-grid {
+    padding-block: var(--space-3xl);
+  }
+
+  /* Bento: empilha tudo */
+  .services-grid__bento-mini-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Icon-box: volta para vertical no mobile */
+  .services-grid--icon-box .services-grid__card {
+    flex-direction: column;
+  }
+
+  /* Bleed: 1 col mobile + menos padding-top */
+  .services-grid--bleed .services-grid__list {
+    grid-template-columns: 1fr;
+    padding-block-start: var(--space-2xl);
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --gradient
+   Cards com blob de gradiente suave no
+   canto superior direito + título grande.
+   (Services / Expertise / Portfolio)
+═══════════════════════════════════════ */
+
+.services-grid--gradient {
+  background-color: var(--color-background);
+}
+
+/* Cards: overflow hidden para clipar o blob */
+.services-grid--gradient .services-grid__card {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  border: 1px solid var(--color-border);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.services-grid--gradient .services-grid__card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Blob de gradiente suave — posicionado no canto superior direito */
+.services-grid__blob {
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  filter: blur(36px);
+  pointer-events: none;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+/* Cores rotativas por posição */
+.services-grid--gradient .services-grid__card:nth-child(1) .services-grid__blob { background: #FF8A80; }
+.services-grid--gradient .services-grid__card:nth-child(2) .services-grid__blob { background: #80CBC4; }
+.services-grid--gradient .services-grid__card:nth-child(3) .services-grid__blob { background: #CE93D8; }
+.services-grid--gradient .services-grid__card:nth-child(4) .services-grid__blob { background: #80DEEA; }
+.services-grid--gradient .services-grid__card:nth-child(5) .services-grid__blob { background: #FFE082; }
+.services-grid--gradient .services-grid__card:nth-child(6) .services-grid__blob { background: #FFCC80; }
+
+/* Eyebrow "Main service" */
+.services-grid__card-eyebrow {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  margin-block-end: var(--space-sm);
+}
+
+/* Título grande — tipografia destacada */
+.services-grid--gradient .services-grid__card-title {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-strong);
+  letter-spacing: -0.02em;
+  margin-block-end: 0;
+}
+
+/* Espaçador: empurra corpo e link para o fim */
+.services-grid--gradient .services-grid__card-body {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  flex: 1;
+}
+
+/* Rodapé do card: link "Case Study" */
+.services-grid__card-footer {
+  margin-block-start: var(--space-xl);
+}
+
+.services-grid__case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-body);
+  transition: color 0.15s ease;
+}
+
+.services-grid__case-link:hover {
+  color: var(--color-text-strong);
+}
+
+/* Botão circula com seta */
+.services-grid__case-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-border-strong);
+  background: transparent;
+  color: var(--color-text-body);
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.services-grid__case-link:hover .services-grid__case-btn,
+.services-grid__card--active .services-grid__case-btn {
+  background-color: var(--color-text-strong);
+  border-color: var(--color-text-strong);
+  color: var(--color-text-inverse);
+}
+
+.services-grid__case-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Desktop --gradient: 3 colunas */
+@media (min-width: 768px) {
+  .services-grid--gradient .services-grid__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile --gradient: 1 coluna */
+@media (max-width: 639px) {
+  .services-grid--gradient .services-grid__list {
+    grid-template-columns: 1fr;
+  }
+  .services-grid--gradient .services-grid__card {
+    min-height: 260px;
+  }
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · components/sections/features/feature-split/style.css
+    ══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────
+   feature-split — section
+   Conteúdo à esquerda + imagem à direita.
+   Modifier --reverse: imagem esquerda, conteúdo direita.
+   Style=01 Direita / Style=01 Esquerda
+   ───────────────────────────────────────── */
+
+/* ═══════════════════════════════════════
+   MOBILE FIRST — coluna única
+═══════════════════════════════════════ */
+
+.feature-split {
+  background-color: var(--color-background-alt);
+  padding-block: var(--space-3xl);
+}
+
+.feature-split__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+/* ── Imagem ── */
+.feature-split__media {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-border);
+}
+
+.feature-split__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Eyebrow ── */
+.feature-split__eyebrow {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-block-end: var(--space-md);
+}
+
+/* ── Título ── */
+.feature-split__title {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-4xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-strong);
+  margin-block-end: var(--space-lg);
+}
+
+/* ── Descrição ── */
+.feature-split__description {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-body);
+  margin-block-end: var(--space-xl);
+}
+
+/* ── Checklist (rico: ícone + subtítulo + corpo) ── */
+.feature-split__checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  list-style: none;
+  padding: 0;
+  margin-block-end: var(--space-xl);
+}
+
+.feature-split__check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.feature-split__check-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+
+.feature-split__check-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.feature-split__check-subtitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-strong);
+  line-height: var(--line-height-snug);
+}
+
+.feature-split__check-body {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+}
+
+/* ── Ações ── */
+.feature-split__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+
+/* ═══════════════════════════════════════
+   DESKTOP (768px+) — duas colunas
+═══════════════════════════════════════ */
+@media (min-width: 768px) {
+
+  .feature-split {
+    padding-block: var(--space-4xl);
+  }
+
+  .feature-split__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: stretch;
+  }
+
+  /* Imagem preenche altura do conteúdo */
+  .feature-split__media {
+    aspect-ratio: auto;
+    min-height: 400px;
+  }
+
+  /* Conteúdo centralizado verticalmente */
+  .feature-split__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /*
+    --reverse: imagem à esquerda, conteúdo à direita.
+    Aplicado apenas no desktop — mobile sempre empilha
+    content-acima / image-abaixo pela ordem do HTML.
+  */
+  .feature-split--reverse .feature-split__media {
+    order: -1;
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   DESKTOP LARGE (1024px+)
+═══════════════════════════════════════ */
+@media (min-width: 1024px) {
+  .feature-split__inner {
+    gap: var(--space-4xl);
+  }
+
+  .feature-split__media {
+    min-height: 460px;
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   MODIFIER --mission
+   Eyebrow com dot colorido + linha divisória.
+   Múltiplos parágrafos + mini stat cards.
+   Fan de imagens à direita (rotação CSS).
+   (About / Missão / Nossa história)
+═══════════════════════════════════════ */
+
+.feature-split--mission {
+  background-color: var(--color-background-alt);
+}
+
+/* ── Eyebrow: • texto —————————— */
+.feature-split__eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-block-end: var(--space-xl);
+}
+
+.feature-split__eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.feature-split__eyebrow-text {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.feature-split__eyebrow-rule {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+/* ── Parágrafos de corpo ── */
+.feature-split__body {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-body);
+  max-width: 54ch;
+}
+
+.feature-split__body + .feature-split__body {
+  margin-block-start: var(--space-lg);
+}
+
+/* ── Mini stat cards ── */
+.feature-split__stats-row {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-block-start: var(--space-2xl);
+}
+
+.feature-split__stat {
+  background-color: var(--color-background);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  flex: 1;
+  min-width: 140px;
+}
+
+.feature-split__stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-block-end: var(--space-sm);
+}
+
+.feature-split__stat-number {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
+  color: var(--color-text-strong);
+  letter-spacing: -0.02em;
+}
+
+/* Sufixo em cor primária (ex: "+", "M+") */
+.feature-split__stat-accent {
+  color: var(--color-primary);
+}
+
+/* ── Fan de imagens (coluna direita) ── */
+.feature-split--mission .feature-split__media {
+  aspect-ratio: auto;
+  overflow: visible;
+  background-color: transparent;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+/* Container dos 3 cards sobrepostos */
+.feature-split__fan {
+  position: relative;
+  width: 340px;
+  height: 310px;
+  flex-shrink: 0;
+}
+
+/* Todos os cards partem do centro e são deslocados por transform */
+.feature-split__fan-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 170px;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid var(--color-background);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 16px 48px rgba(0, 0, 0, 0.14);
+  background-color: var(--color-border);
+}
+
+.feature-split__fan-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card 1: mais atrás e à esquerda */
+.feature-split__fan-card:nth-child(1) {
+  z-index: 1;
+  transform: translate(-50%, -50%) rotate(-15deg) translate(-72px, 18px);
+}
+
+/* Card 2: centro com leve inclinação */
+.feature-split__fan-card:nth-child(2) {
+  z-index: 2;
+  transform: translate(-50%, -50%) rotate(-4deg) translate(-8px, 8px);
+}
+
+/* Card 3: frente e à direita */
+.feature-split__fan-card:nth-child(3) {
+  z-index: 3;
+  transform: translate(-50%, -50%) rotate(9deg) translate(64px, -4px);
+}
+
+
+/* ── Mobile: fan e stats adaptados ── */
+@media (max-width: 639px) {
+  .feature-split__fan {
+    width: 270px;
+    height: 248px;
+  }
+
+  .feature-split__fan-card {
+    width: 132px;
+  }
+
+  .feature-split__fan-card:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(-15deg) translate(-56px, 14px);
+  }
+
+  .feature-split__fan-card:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(-4deg) translate(-6px, 6px);
+  }
+
+  .feature-split__fan-card:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(9deg) translate(50px, -4px);
+  }
+
+  .feature-split__stats-row {
+    flex-direction: column;
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --icon-list
+   Screenshot de app à esq. + lista de features
+   com ícone emoji + título + corpo à dir.
+   (Jambo Content Tab)
+═══════════════════════════════════════ */
+
+.feature-split--icon-list {
+  background-color: var(--color-background);
+}
+
+.feature-split--icon-list .feature-split__inner {
+  align-items: center;
+}
+
+/* Screenshot em container com fundo pontilhado */
+.feature-split__app-frame {
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background-color: #F5F4F0;
+  background-image: radial-gradient(circle, var(--color-border-strong) 1px, transparent 1px);
+  background-size: 22px 22px;
+  min-height: 360px;
+}
+
+.feature-split__app-screenshot {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  display: block;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+}
+
+/* Título com linha de destaque em cor primária */
+.feature-split__title-accent-line {
+  color: var(--color-primary);
+  display: block;
+}
+
+/* Lista de features */
+.feature-split__icon-list {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: var(--space-xl);
+}
+
+.feature-split__icon-item {
+  display: flex;
+  gap: var(--space-lg);
+  padding-block: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.feature-split__icon-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Caixa do ícone emoji */
+.feature-split__icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+}
+
+.feature-split__icon-item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.feature-split__icon-item-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-strong);
+  line-height: var(--line-height-snug);
+}
+
+.feature-split__icon-item-title .accent {
+  color: var(--color-primary);
+}
+
+.feature-split__icon-item-body {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Caption rodapé */
+.feature-split__caption {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-block-start: var(--space-lg);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+.feature-split__caption svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin-block-start: 1px;
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · components/sections/steps/steps-horizontal/style.css
+    ══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────
+   steps-horizontal — section
+   Header centralizado + N passos numerados.
+   Mobile: lista vertical simples.
+   Desktop: linha conectando os números em fileira.
+   Inspirado em seções "How it works" (Stripe, Notion).
+   ───────────────────────────────────────── */
+
+/* ═══════════════════════════════════════
+   MOBILE FIRST
+═══════════════════════════════════════ */
+
+.steps-horizontal {
+  background-color: var(--color-background);
+  padding-block: var(--space-3xl);
+}
+
+.steps-horizontal__header {
+  text-align: center;
+  max-width: 60ch;
+  margin-inline: auto;
+  margin-block-end: var(--space-2xl);
+}
+
+.steps-horizontal__eyebrow {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-block-end: var(--space-md);
+}
+
+.steps-horizontal__title {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-4xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-strong);
+  margin-block-end: var(--space-md);
+}
+
+.steps-horizontal__description {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-body);
+}
+
+.steps-horizontal__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.steps-horizontal__item {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.steps-horizontal__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-block-end: var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+.steps-horizontal__item-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-strong);
+  margin-block-end: var(--space-xs);
+}
+
+.steps-horizontal__item-description {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  max-width: 32ch;
+}
+
+
+/* ═══════════════════════════════════════
+   DESKTOP (900px+) — fileira com linha conectora
+═══════════════════════════════════════ */
+@media (min-width: 900px) {
+  .steps-horizontal {
+    padding-block: var(--space-4xl);
+  }
+
+  .steps-horizontal__list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+  }
+
+  /* Linha conectando o centro de um número ao próximo */
+  .steps-horizontal__item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 27px;
+    left: calc(50% + 28px);
+    width: calc(100% - 56px);
+    height: 2px;
+    background-color: var(--color-border-strong);
+  }
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · components/sections/faq/faq-accordion/style.css
+    ══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────
+   faq-accordion — section
+   Seção de perguntas frequentes com accordion nativo (<details>/<summary>).
+   Animação via CSS grid-template-rows — sem JS.
+
+   Variantes:
+     • Base: coluna única com linhas separadoras
+     • --enclosed: itens em card cinza (V1 Prime)
+     • --dark: fundo escuro, grid 3 colunas (APD)
+     • --cards: cada item em card próprio (Section)
+     • --split: título à esq. + lista à dir. (Yelly)
+   ───────────────────────────────────────── */
+
+/* ═══════════════════════════════════════
+   BASE
+═══════════════════════════════════════ */
+
+.faq-accordion {
+  padding-block: var(--space-4xl);
+  background-color: var(--color-background);
+}
+
+/* ── Cabeçalho de seção ── */
+.faq-accordion__header {
+  text-align: center;
+  margin-block-end: var(--space-3xl);
+}
+
+.faq-accordion__title {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-4xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-strong);
+  margin-block-end: var(--space-md);
+}
+
+/* Destaque de cor na palavra do título (variant --dark) */
+.faq-accordion__title-accent {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.faq-accordion__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ── Remove marcador padrão do <summary> ── */
+.faq-accordion__trigger {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  width: 100%;
+  background: none;
+  border: none;
+  padding-block: var(--space-lg);
+  text-align: left;
+}
+
+.faq-accordion__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.faq-accordion__trigger::marker {
+  display: none;
+  content: '';
+}
+
+.faq-accordion__trigger:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.faq-accordion__question {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-strong);
+  line-height: var(--line-height-snug);
+  flex: 1;
+}
+
+/* ── Ícone ── */
+.faq-accordion__icon-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+/* Chevron: roda 180° quando aberto */
+.faq-accordion__icon-chevron {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.25s ease;
+}
+
+details[open] > .faq-accordion__trigger .faq-accordion__icon-chevron {
+  transform: rotate(-180deg);
+}
+
+/* Plus/Minus: a barra vertical some, deixando só o traço horizontal */
+.faq-accordion__icon-plus {
+  width: 18px;
+  height: 18px;
+}
+
+.faq-accordion__icon-plus .icon-plus__v {
+  transform-origin: 9px 9px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+details[open] > .faq-accordion__trigger .faq-accordion__icon-plus .icon-plus__v {
+  transform: rotate(90deg) scaleX(0);
+  opacity: 0;
+}
+
+/* ── Painel animado via grid-template-rows ── */
+.faq-accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+}
+
+details[open] > .faq-accordion__panel {
+  grid-template-rows: 1fr;
+}
+
+.faq-accordion__panel-inner {
+  overflow: hidden;
+}
+
+.faq-accordion__answer {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  padding-block-end: var(--space-lg);
+}
+
+/* ── Lista de itens (base: coluna única) ── */
+.faq-accordion__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-accordion__item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-accordion__item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Rodapé com CTA ── */
+.faq-accordion__footer {
+  display: flex;
+  justify-content: center;
+  margin-block-start: var(--space-3xl);
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --enclosed
+   Itens dentro de um card cinza arredondado (V1 Prime).
+   Ícone +/− com cor primária.
+═══════════════════════════════════════ */
+
+.faq-accordion--enclosed .faq-accordion__list {
+  background-color: var(--color-background-alt);
+  border-radius: var(--radius-xl);
+  padding-inline: var(--space-xl);
+}
+
+.faq-accordion--enclosed .faq-accordion__item {
+  border-top: none;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-accordion--enclosed .faq-accordion__item:last-child {
+  border-bottom: none;
+}
+
+.faq-accordion--enclosed .faq-accordion__trigger {
+  padding-block: var(--space-xl);
+}
+
+.faq-accordion--enclosed .faq-accordion__icon-wrap {
+  color: var(--color-primary);
+}
+
+.faq-accordion--enclosed .faq-accordion__question {
+  font-size: var(--font-size-base);
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --dark
+   Fundo escuro, texto claro, grid 3 colunas no desktop.
+   Título com palavra de destaque colorida.
+═══════════════════════════════════════ */
+
+.faq-accordion--dark {
+  background-color: var(--color-background-dark);
+}
+
+.faq-accordion--dark .faq-accordion__title {
+  color: var(--color-text-inverse);
+}
+
+.faq-accordion--dark .faq-accordion__subtitle {
+  color: var(--color-text-subtle);
+}
+
+.faq-accordion--dark .faq-accordion__question {
+  color: var(--color-text-inverse);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+}
+
+.faq-accordion--dark .faq-accordion__answer {
+  color: var(--color-text-subtle);
+}
+
+.faq-accordion--dark .faq-accordion__item {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: none;
+}
+
+.faq-accordion--dark .faq-accordion__icon-wrap {
+  color: var(--color-primary);
+}
+
+/* Grid de 1 coluna mobile, 3 colunas desktop */
+.faq-accordion--dark .faq-accordion__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: var(--space-4xl);
+}
+
+.faq-accordion--dark .faq-accordion__trigger {
+  padding-block: var(--space-xl);
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --cards
+   Cada item é um card arredondado com fundo cinza (Section).
+═══════════════════════════════════════ */
+
+.faq-accordion--cards .faq-accordion__list {
+  gap: var(--space-sm);
+}
+
+.faq-accordion--cards .faq-accordion__item {
+  background-color: var(--color-background-alt);
+  border-radius: var(--radius-lg);
+  border: none;
+  padding-inline: var(--space-xl);
+  overflow: hidden;
+}
+
+.faq-accordion--cards .faq-accordion__item:first-child {
+  border-top: none;
+}
+
+.faq-accordion--cards .faq-accordion__trigger {
+  padding-block: var(--space-xl);
+}
+
+.faq-accordion--cards .faq-accordion__question {
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+}
+
+
+/* ═══════════════════════════════════════
+   VARIANT --split
+   Título grande à esquerda + lista à direita (Yelly).
+═══════════════════════════════════════ */
+
+.faq-accordion--split {
+  background-color: var(--color-background-alt);
+}
+
+/* Grid: mobile empilhado, desktop 2 colunas */
+.faq-accordion--split .faq-accordion__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.faq-accordion--split .faq-accordion__split-title {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-strong);
+}
+
+.faq-accordion--split .faq-accordion__icon-wrap {
+  color: var(--color-text-strong);
+}
+
+.faq-accordion--split .faq-accordion__item {
+  border-color: var(--color-border-strong);
+}
+
+.faq-accordion--split .faq-accordion__item:first-child {
+  border-top: 1px solid var(--color-border-strong);
+}
+
+
+/* ═══════════════════════════════════════
+   TABLET / DESKTOP (≥ 768px)
+═══════════════════════════════════════ */
+@media (min-width: 768px) {
+
+  /* Dark: 3 colunas */
+  .faq-accordion--dark .faq-accordion__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Split: 2 colunas (1fr 2fr) */
+  .faq-accordion--split .faq-accordion__inner {
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-5xl);
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   MOBILE (< 640px)
+═══════════════════════════════════════ */
+@media (max-width: 639px) {
+
+  .faq-accordion {
+    padding-block: var(--space-3xl);
+  }
+
+  .faq-accordion__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .faq-accordion--split .faq-accordion__split-title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · components/sections/forms/form-lead-capture/style.css
+    ══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────
+   form-lead-capture — section
+   2 colunas: copy + benefícios (esq.) e
+   card de formulário elevado (dir.).
+   Inspirado em landing pages de geração de leads
+   B2B (HubSpot, Unbounce): card com sombra forte
+   destacado sobre fundo neutro.
+   ───────────────────────────────────────── */
+
+/* ═══════════════════════════════════════
+   MOBILE FIRST
+═══════════════════════════════════════ */
+
+.form-lead-capture {
+  background-color: var(--color-background);
+  padding-block: var(--space-3xl);
+}
+
+.form-lead-capture__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+/* ── Copy ── */
+.form-lead-capture__eyebrow {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-block-end: var(--space-md);
+}
+
+.form-lead-capture__title {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-4xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-strong);
+  margin-block-end: var(--space-md);
+}
+
+.form-lead-capture__description {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-body);
+  margin-block-end: var(--space-xl);
+}
+
+.form-lead-capture__benefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-block-end: var(--space-xl);
+}
+
+.form-lead-capture__benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-size-base);
+  color: var(--color-text-body);
+}
+
+.form-lead-capture__benefits svg {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  color: var(--color-success);
+  margin-block-start: 1px;
+}
+
+.form-lead-capture__proof {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.form-lead-capture__avatars {
+  display: flex;
+}
+
+.form-lead-capture__avatars img {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-background);
+  object-fit: cover;
+  margin-inline-start: -10px;
+}
+
+.form-lead-capture__avatars img:first-child {
+  margin-inline-start: 0;
+}
+
+.form-lead-capture__proof-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.form-lead-capture__proof-text strong {
+  color: var(--color-text-strong);
+}
+
+/* ── Card do formulário ── */
+.form-lead-capture__card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-xl);
+}
+
+.form-lead-capture__card-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-strong);
+  margin-block-end: var(--space-xs);
+}
+
+.form-lead-capture__card-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-block-end: var(--space-lg);
+}
+
+.form-lead-capture__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-lead-capture__submit {
+  width: 100%;
+  margin-block-start: var(--space-xs);
+}
+
+
+/* ═══════════════════════════════════════
+   DESKTOP (960px+) — 2 colunas lado a lado
+═══════════════════════════════════════ */
+@media (min-width: 960px) {
+  .form-lead-capture {
+    padding-block: var(--space-4xl);
+  }
+
+  .form-lead-capture__grid {
+    grid-template-columns: 1fr 0.85fr;
+    gap: var(--space-4xl);
+  }
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       DS · components/sections/footers/footer-full/style.css
+    ══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────
+   footer-full — section
+   Rodapé completo com colunas de links.
+
+   Variantes suportadas (via HTML):
+     • Logo + desc + CTA esq. / cols dir. (Variant5)
+     • Logo + desc esq. / cols dir. s/ CTA (Variant3)
+     • Banner CTA + logo + desc + cols (Default5)
+     • Cols c/ contato + redes (Search Bar)
+   ───────────────────────────────────────── */
+
+/* ═══════════════════════════════════════
+   BASE
+═══════════════════════════════════════ */
+
+.footer-full {
+  background-color: var(--color-background);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Banner CTA (opcional — acima do grid) ── */
+.footer-full__cta-banner {
+  padding-block: var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.footer-full__cta-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.footer-full__cta-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-strong);
+}
+
+/* ── Grid principal (brand | links) ── */
+.footer-full__grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: coluna única */
+  gap: var(--space-3xl);
+  padding-block: var(--space-3xl);
+}
+
+/* ── Coluna da marca (logo + desc + opcional CTA + social) ── */
+.footer-full__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.footer-full__logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.footer-full__logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.footer-full__description {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  max-width: 40ch;
+}
+
+/* Social na brand column */
+.footer-full__brand-social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.footer-full__brand-social-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-block-end: var(--space-sm);
+}
+
+/* ── Grid de grupos de links ── */
+.footer-full__links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* mobile: 2 cols */
+  gap: var(--space-xl) var(--space-2xl);
+  align-items: start;
+}
+
+/* ── Grupo de links ── */
+.footer-full__group-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-strong);
+  margin-block-end: var(--space-md);
+  line-height: var(--line-height-snug);
+}
+
+.footer-full__group-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer-full__group-link {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: color 0.15s ease;
+}
+
+.footer-full__group-link:hover {
+  color: var(--color-text-strong);
+}
+
+.footer-full__group-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.footer-full__group-link-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* Social no grupo de links */
+.footer-full__group-social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.footer-full__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-strong);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.footer-full__social-link:hover {
+  opacity: 0.65;
+}
+
+.footer-full__social-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Grupo com CTAs (Property 1=Default, última coluna) */
+.footer-full__group-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-block-start: var(--space-md);
+}
+
+/* ── CTA estilo "search bar" (Property 1=Search Bar) ── */
+.footer-full__search-cta-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-block-end: var(--space-sm);
+}
+
+.footer-full__search-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: transparent;
+  cursor: pointer;
+  gap: var(--space-md);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.footer-full__search-cta:hover {
+  border-color: var(--color-text-strong);
+  background-color: var(--color-background-alt);
+}
+
+.footer-full__search-cta:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.footer-full__search-cta-text {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-body);
+  text-align: left;
+}
+
+.footer-full__search-cta-arrow {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+/* ── Divider ── */
+.footer-full__divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+/* ── Bottom bar ── */
+.footer-full__bottom {
+  padding-block: var(--space-md);
+}
+
+.footer-full__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.footer-full__copyright {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.footer-full__bottom-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.footer-full__bottom-link {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-full__bottom-link:hover {
+  color: var(--color-text-strong);
+}
+
+
+/* ═══════════════════════════════════════
+   TABLET (≥ 768px): 2 colunas (brand | links)
+═══════════════════════════════════════ */
+@media (min-width: 768px) {
+
+  .footer-full__grid {
+    grid-template-columns: minmax(180px, 1fr) 2fr;
+    gap: var(--space-4xl);
+  }
+
+  .footer-full__links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   DESKTOP (≥ 1024px): links expandem para 4 cols
+═══════════════════════════════════════ */
+@media (min-width: 1024px) {
+
+  .footer-full__grid {
+    grid-template-columns: minmax(220px, 1fr) 3fr;
+  }
+
+  .footer-full__links {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   MOBILE (< 768px)
+═══════════════════════════════════════ */
+@media (max-width: 767px) {
+
+  /* Banner CTA: empilhado */
+  .footer-full__cta-banner-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  /* Botão do banner full-width */
+  .footer-full__cta-banner .button {
+    width: 100%;
+  }
+
+  /* Brand: botão CTA full-width */
+  .footer-full__brand .button {
+    width: 100%;
+  }
+
+  /* Grid de links: 2 colunas no mobile */
+  .footer-full__links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg) var(--space-xl);
+  }
+
+  /* Bottom bar: empilhado */
+  .footer-full__bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  /* Search CTA: full-width */
+  .footer-full__search-cta {
+    width: 100%;
+  }
+}
+
+    /* ══════════════════════════════════════════════════════════════
+       AJUSTES DA PÁGINA — BR Samor Farma
+       Extensões BEM dos componentes do DS, só com tokens.
+    ══════════════════════════════════════════════════════════════ */
+
+    /* hero-split: selo "Nova frota refrigerada" acima do título */
+    .hero-split__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      align-self: flex-start;
+      padding: var(--space-xs) var(--space-md);
+      margin-block-end: var(--space-lg);
+      border-radius: var(--radius-full);
+      background-color: var(--color-ice);
+      color: var(--color-ice-strong);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .hero-split__eyebrow-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .hero-split__title-accent {
+      color: var(--color-primary);
+    }
+
+    .hero-split__description {
+      margin-block-end: var(--space-lg);
+    }
+
+    /* Imagem do hero sem cortar a frente do caminhão */
+    .hero-split__image {
+      object-position: 70% center;
+    }
+
+    /* stats-highlighted: nota de fonte dos dados */
+    .stats-highlighted__source {
+      font-size: var(--font-size-xs);
+      line-height: var(--line-height-relaxed);
+      color: var(--color-text-muted);
+    }
+
+    .stats-highlighted__stat-number--accent {
+      color: var(--color-primary);
+    }
+
+    /* services-grid--pastel: troca a paleta pastel genérica pelos tons frio/quente da página */
+    .services-grid--pastel .services-grid__card:nth-child(1) { background-color: var(--color-ice); }
+    .services-grid--pastel .services-grid__card:nth-child(2) { background-color: var(--color-peach); }
+    .services-grid--pastel .services-grid__card:nth-child(3) { background-color: var(--color-mist); }
+    .services-grid--pastel .services-grid__card:nth-child(4) { background-color: var(--color-primary-light); }
+
+    .services-grid__card-range {
+      font-family: var(--font-heading);
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-tight);
+      color: var(--color-text-strong);
+      letter-spacing: var(--letter-spacing-tight);
+    }
+
+    .services-grid__card-tag {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: var(--letter-spacing-wide);
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    /* feature-split: mapa em PNG transparente, sem fundo nem corte */
+    .feature-split__media--transparent {
+      background-color: transparent;
+    }
+
+    .feature-split__image--contain {
+      object-fit: contain;
+    }
+
+    .feature-split__image--bottom {
+      object-position: left bottom;
+    }
+
+    /* stats-highlighted: centraliza as fotos em relação à coluna de números no desktop */
+    @media (min-width: 768px) {
+      .stats-highlighted__inner {
+        align-items: center;
+      }
+    }
+
+    .feature-split__eyebrow--accent {
+      color: var(--color-primary);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    /* Lista de bases em colunas dentro do feature-split */
+    .feature-split__check-body--columns {
+      columns: 2;
+      column-gap: var(--space-lg);
+    }
+
+    /* steps-horizontal: número a 20px bold = "texto grande" no WCAG (3:1 suficiente) */
+    .steps-horizontal__number {
+      font-size: var(--font-size-xl);
+    }
+
+    /* form-lead-capture: campos lado a lado a partir de 480px */
+    .form-lead-capture__row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .form-lead-capture__note {
+      font-size: var(--font-size-xs);
+      line-height: var(--line-height-relaxed);
+      color: var(--color-text-muted);
+      text-align: center;
+    }
+
+    .form-lead-capture__status {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-warning);
+    }
+
+    @media (min-width: 480px) {
+      .form-lead-capture__row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* footer-full: contato com ícone */
+    .footer-full__group-link-text {
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SPRITE DE ÍCONES (reutilizados via <use>)
+══════════════════════════════════════════════════════════════ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </symbol>
+  <symbol id="icon-check-circle" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="12" style="fill: var(--color-primary)"/>
+    <path d="M7 12.5l3.5 3.5 6.5-7" style="fill:none; stroke: var(--color-text-inverse); stroke-width:2; stroke-linecap:round; stroke-linejoin:round"/>
+  </symbol>
+  <symbol id="icon-snowflake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2v20M4.9 6l14.2 12M19.1 6L4.9 18"/>
+    <path d="M9.5 3.5L12 6l2.5-2.5M9.5 20.5L12 18l2.5 2.5M3.2 9.4l3.4-.9-.9-3.4M20.8 14.6l-3.4.9.9 3.4M5.7 18.9l.9-3.4-3.4-.9M18.3 5.1l-.9 3.4 3.4.9"/>
+  </symbol>
+  <symbol id="icon-thermometer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+    <path d="M11.5 9v8"/>
+  </symbol>
+  <symbol id="icon-medkit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="7" width="18" height="14" rx="2"/>
+    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M12 11v6M9 14h6"/>
+  </symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2L4 6v5c0 5.3 3.5 9.8 8 11 4.5-1.2 8-5.7 8-11V6l-8-4z"/>
+    <path d="M9 12l2 2 4-4"/>
+  </symbol>
+  <symbol id="icon-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1 4h13v12H1zM14 8h4l4 4v4h-8"/>
+    <circle cx="5.5" cy="18.5" r="2"/><circle cx="17.5" cy="18.5" r="2"/>
+  </symbol>
+  <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+  </symbol>
+  <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/>
+  </symbol>
+  <symbol id="icon-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 12a9 9 0 0 1 15.5-6.3L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.3L3 16M3 21v-5h5"/>
+  </symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+  </symbol>
+  <symbol id="icon-file-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/>
+  </symbol>
+  <symbol id="icon-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="4" width="14" height="18" rx="2"/><path d="M9 2h6v4H9zM9 12h6M9 16h4"/>
+  </symbol>
+  <symbol id="icon-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 14l4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/>
+  </symbol>
+  <symbol id="icon-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="6" cy="19" r="3"/><circle cx="18" cy="5" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/>
+  </symbol>
+  <symbol id="icon-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>
+  </symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/>
+  </symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/>
+  </symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+  </symbol>
+  <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>
+  </symbol>
+  <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+  </symbol>
+  <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.5h-2.8V24C19.62 23.1 24 18.1 24 12.07"/>
+  </symbol>
+</svg>
+
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+<!-- ══════════════════════════════════════════════════════════════
+     1. HEADER — header-simple
+══════════════════════════════════════════════════════════════ -->
+<header class="header-simple" role="banner">
+  <div class="header-simple__bar container">
+    <a href="https://home.brsamor.com.br/home" class="header-simple__logo" aria-label="BR Samor, ir para o site institucional">
+      <img class="header-simple__logo-img" src="assets/images/logo-br-samor.png" alt="BR Samor, Transportando seu negócio" width="156" height="32">
+    </a>
+
+    <nav class="header-simple__nav" aria-label="Navegação principal">
+      <ul class="header-simple__list" role="list">
+        <li><a class="header-simple__link" href="#temperaturas">Faixas de temperatura</a></li>
+        <li><a class="header-simple__link" href="#frota">Frota refrigerada</a></li>
+        <li><a class="header-simple__link" href="#monitoramento">Monitoramento</a></li>
+        <li><a class="header-simple__link" href="#conformidade">Conformidade</a></li>
+        <li><a class="header-simple__link" href="#faq">Dúvidas</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-simple__actions">
+      <div class="header-simple__cta-wrap">
+        <a href="#cotacao" class="button button--filled button--md">
+          Solicitar cotação
+          <svg class="button__icon" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+        </a>
+      </div>
+      <button class="header-simple__toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-panel" data-js="nav-toggle">
+        <span class="header-simple__toggle-bar"></span>
+        <span class="header-simple__toggle-bar"></span>
+        <span class="header-simple__toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="header-simple__mobile-panel" id="nav-panel" data-js="nav-panel">
+    <ul class="header-simple__mobile-list" role="list">
+      <li><a class="header-simple__mobile-link" href="#temperaturas">Faixas de temperatura</a></li>
+      <li><a class="header-simple__mobile-link" href="#frota">Frota refrigerada</a></li>
+      <li><a class="header-simple__mobile-link" href="#monitoramento">Monitoramento</a></li>
+      <li><a class="header-simple__mobile-link" href="#conformidade">Conformidade</a></li>
+      <li><a class="header-simple__mobile-link" href="#faq">Dúvidas</a></li>
+    </ul>
+    <div class="header-simple__mobile-actions">
+      <a href="#cotacao" class="button button--filled button--md">Solicitar cotação</a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- ══════════════════════════════════════════════════════════════
+       2. HERO — hero-split (checklist)
+       VALIDAR: faixas de temperatura atendidas pela frota (2–8 °C e 15–25 °C).
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="hero-split" aria-labelledby="hero-title">
+    <div class="hero-split__inner container">
+      <div class="hero-split__content">
+        <span class="hero-split__eyebrow">
+          <svg class="hero-split__eyebrow-icon" aria-hidden="true" focusable="false"><use href="#icon-snowflake"/></svg>
+          Nova frota refrigerada
+        </span>
+        <h1 class="hero-split__title" id="hero-title">
+          Medicamentos na temperatura certa, <span class="hero-split__title-accent">com a segurança de quem transporta carga de alto valor.</span>
+        </h1>
+        <p class="hero-split__description">
+          Transporte com temperatura controlada para a indústria farmacêutica, distribuidoras e hospitais, da coleta à entrega, em todo o Brasil.
+        </p>
+        <ul class="hero-split__checklist" aria-label="Diferenciais">
+          <li class="hero-split__check-item">
+            <svg class="hero-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <span>Caminhões refrigerados para cargas de 2 °C a 8 °C e de 15 °C a 25 °C</span>
+          </li>
+          <li class="hero-split__check-item">
+            <svg class="hero-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <span>Temperatura e localização monitoradas 24 horas por dia</span>
+          </li>
+          <li class="hero-split__check-item">
+            <svg class="hero-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <span>Transportadora autorizada pela Anvisa</span>
+          </li>
+          <li class="hero-split__check-item">
+            <svg class="hero-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <span>Gestão de risco, frota própria e apólice de seguro própria</span>
+          </li>
+        </ul>
+        <div class="hero-split__actions">
+          <a href="#cotacao" class="button button--filled button--md">
+            Solicitar cotação farma
+            <svg class="button__icon" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+          </a>
+          <a href="#frota" class="button button--outline button--md">Conhecer a frota</a>
+        </div>
+      </div>
+      <div class="hero-split__media">
+        <img class="hero-split__image" src="assets/images/caminhao-bau.webp" alt="Caminhão baú branco da BR Samor, com a marca na carroceria, rodando em rodovia ao pôr do sol" width="850" height="620" loading="eager" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       3. POR QUE IMPORTA — stats-highlighted
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="stats-highlighted" aria-labelledby="stats-title" style="background-color: var(--color-background-alt)">
+    <div class="stats-highlighted__inner container">
+      <div class="stats-highlighted__media">
+        <div class="stats-highlighted__media-item stats-highlighted__media-item--primary">
+          <img class="stats-highlighted__media-img" src="assets/images/carreta.webp" alt="Carreta da BR Samor estacionada, vista de frente, com cavalo mecânico branco e faixas laranja e azul" width="400" height="600" loading="lazy">
+          <span class="stats-highlighted__media-label">Desde 2009</span>
+        </div>
+        <div class="stats-highlighted__media-item stats-highlighted__media-item--secondary">
+          <img class="stats-highlighted__media-img" src="assets/images/medicamentos.png" alt="Comprimidos, frascos e ampolas de medicamentos dispostos sobre fundo azul-claro" width="400" height="500" loading="lazy">
+          <span class="stats-highlighted__media-label">Farma e saúde</span>
+        </div>
+      </div>
+
+      <div class="stats-highlighted__content">
+        <h2 class="stats-highlighted__title" id="stats-title">
+          O medicamento virou o alvo número 1 da estrada. E é também a carga mais sensível que existe.
+        </h2>
+        <ul class="stats-highlighted__list" role="list" aria-label="Dados sobre o transporte de medicamentos">
+          <li class="stats-highlighted__stat">
+            <div class="stats-highlighted__stat-head">
+              <span class="stats-highlighted__stat-number stats-highlighted__stat-number--accent">22,3%</span>
+              <span class="stats-highlighted__stat-label">dos prejuízos com roubo de cargas</span>
+            </div>
+            <p class="stats-highlighted__stat-body">foram com medicamentos no 1º trimestre de 2026. Um ano antes, eram 1,7%.</p>
+          </li>
+          <li class="stats-highlighted__stat">
+            <div class="stats-highlighted__stat-head">
+              <span class="stats-highlighted__stat-number">44,4%</span>
+              <span class="stats-highlighted__stat-label">das cargas acima de R$ 1 milhão</span>
+            </div>
+            <p class="stats-highlighted__stat-body">roubadas no período eram de medicamentos. O crime busca valor e liquidez.</p>
+          </li>
+          <li class="stats-highlighted__stat">
+            <div class="stats-highlighted__stat-head">
+              <span class="stats-highlighted__stat-number">2–8 °C</span>
+              <span class="stats-highlighted__stat-label">faixa dos termolábeis</span>
+            </div>
+            <p class="stats-highlighted__stat-body">Vacinas, insulinas e biológicos perdem eficácia fora dela. Cada viagem precisa de controle e registro.</p>
+          </li>
+        </ul>
+        <div class="stats-highlighted__footer">
+          <p class="stats-highlighted__footer-text">
+            A BR Samor une as duas proteções: temperatura controlada e segurança patrimonial, com 17 anos de experiência em cargas visadas.
+          </p>
+          <a href="#cotacao" class="button button--filled button--md">
+            Falar com especialista
+            <svg class="button__icon" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+          </a>
+        </div>
+        <p class="stats-highlighted__source">Fonte dos dados de roubo: Relatório nstech de Roubo de Cargas, 1º trimestre de 2026 (gerenciadoras BRK, Buonny e Opentech).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       4. FAIXAS DE TEMPERATURA — services-grid--pastel
+       VALIDAR: faixas e tipos de produto com a BR Samor.
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="services-grid services-grid--pastel" id="temperaturas" aria-labelledby="temperaturas-title">
+    <div class="container">
+      <header class="services-grid__header">
+        <p class="services-grid__eyebrow">O que transportamos</p>
+        <h2 class="services-grid__title" id="temperaturas-title">Uma solução para cada exigência do seu produto</h2>
+        <p class="services-grid__description">A temperatura programada segue a especificação do fabricante, registrada no rótulo e no registro sanitário de cada medicamento.</p>
+      </header>
+
+      <div class="services-grid__list">
+        <div class="services-grid__card">
+          <div class="services-grid__icon-wrap"><svg aria-hidden="true" focusable="false"><use href="#icon-snowflake"/></svg></div>
+          <p class="services-grid__card-tag">Refrigerado</p>
+          <p class="services-grid__card-range">2 °C a 8 °C</p>
+          <h3 class="services-grid__card-title">Termolábeis</h3>
+          <p class="services-grid__card-body">Vacinas, insulinas, biológicos, imunobiológicos e demais produtos da cadeia fria.</p>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-wrap"><svg aria-hidden="true" focusable="false"><use href="#icon-thermometer"/></svg></div>
+          <p class="services-grid__card-tag">Ambiente controlado</p>
+          <p class="services-grid__card-range">15 °C a 25 °C</p>
+          <h3 class="services-grid__card-title">Medicamentos em geral</h3>
+          <p class="services-grid__card-body">A maior parte dos medicamentos sólidos e líquidos, protegidos do calor e do frio extremos ao longo da rota.</p>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-wrap"><svg aria-hidden="true" focusable="false"><use href="#icon-medkit"/></svg></div>
+          <p class="services-grid__card-tag">Saúde</p>
+          <p class="services-grid__card-range">Correlatos</p>
+          <h3 class="services-grid__card-title">Materiais cirúrgicos e hospitalares</h3>
+          <p class="services-grid__card-body">Materiais cirúrgicos, insumos e produtos para saúde, com manuseio por equipe treinada.</p>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-wrap"><svg aria-hidden="true" focusable="false"><use href="#icon-shield"/></svg></div>
+          <p class="services-grid__card-tag">Alto valor</p>
+          <p class="services-grid__card-range">Especiais</p>
+          <h3 class="services-grid__card-title">Oncológicos e alto custo</h3>
+          <p class="services-grid__card-body">Terapias de alto valor com protocolos de segurança reforçados, escolta e portador exclusivo quando necessário.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       5. FROTA REFRIGERADA — feature-split
+       VALIDAR: qualificação térmica, sensores calibrados, alarmes.
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="feature-split" id="frota" aria-labelledby="frota-title">
+    <div class="feature-split__inner container">
+      <div class="feature-split__content">
+        <span class="feature-split__eyebrow feature-split__eyebrow--accent">Nova frota refrigerada</span>
+        <h2 class="feature-split__title" id="frota-title">Caminhões preparados para manter a temperatura do início ao fim</h2>
+        <p class="feature-split__description">
+          Nossa nova frota tem baús refrigerados com equipamento de frio ativo. A temperatura programada para a sua carga se mantém estável por toda a rota, com ou sem paradas.
+        </p>
+        <ul class="feature-split__checklist" aria-label="Recursos da frota refrigerada">
+          <li class="feature-split__check-item">
+            <svg class="feature-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <div class="feature-split__check-content">
+              <strong class="feature-split__check-subtitle">Baú refrigerado com controle ativo</strong>
+              <p class="feature-split__check-body">Equipamento de frio dedicado, programado para a faixa exigida pelo seu produto.</p>
+            </div>
+          </li>
+          <li class="feature-split__check-item">
+            <svg class="feature-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <div class="feature-split__check-content">
+              <strong class="feature-split__check-subtitle">Veículos qualificados termicamente</strong>
+              <p class="feature-split__check-body">Mapeamento térmico do baú e testes de desempenho, conforme as boas práticas de transporte de medicamentos.</p>
+            </div>
+          </li>
+          <li class="feature-split__check-item">
+            <svg class="feature-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <div class="feature-split__check-content">
+              <strong class="feature-split__check-subtitle">Sensores calibrados e alarmes</strong>
+              <p class="feature-split__check-body">Qualquer desvio de temperatura gera alerta imediato para a central e aciona o plano de contingência.</p>
+            </div>
+          </li>
+          <li class="feature-split__check-item">
+            <svg class="feature-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <div class="feature-split__check-content">
+              <strong class="feature-split__check-subtitle">Segurança de carga de alto valor</strong>
+              <p class="feature-split__check-body">Rastreamento por satélite, gerenciamento de risco e os protocolos que a BR Samor aplica há 17 anos em cargas visadas.</p>
+            </div>
+          </li>
+        </ul>
+        <div class="feature-split__actions">
+          <a href="#cotacao" class="button button--filled button--md">
+            Solicitar cotação
+            <svg class="button__icon" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="feature-split__media">
+        <img class="feature-split__image feature-split__image--bottom" src="assets/images/frota-baus.webp" alt="Fileira de caminhões baú brancos da BR Samor, com o logo laranja e azul nas carrocerias" width="894" height="630" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       6. MONITORAMENTO — feature-split--reverse
+       VALIDAR: temperatura disponível no dashboard e relatório por viagem.
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="feature-split feature-split--reverse" id="monitoramento" aria-labelledby="monitoramento-title" style="background-color: var(--color-background)">
+    <div class="feature-split__inner container">
+      <div class="feature-split__content">
+        <span class="feature-split__eyebrow">Visibilidade total</span>
+        <h2 class="feature-split__title" id="monitoramento-title">Temperatura e localização da sua carga, em tempo real</h2>
+        <p class="feature-split__description">
+          Você acompanha cada viagem pelos dashboards da BR Samor e recebe a comprovação de que a faixa de temperatura foi respeitada do começo ao fim.
+        </p>
+        <ul class="feature-split__checklist" aria-label="Recursos de monitoramento">
+          <li class="feature-split__check-item">
+            <svg class="feature-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <div class="feature-split__check-content">
+              <strong class="feature-split__check-subtitle">Dashboard com temperatura por viagem</strong>
+              <p class="feature-split__check-body">Status da entrega, posição do veículo e leitura dos sensores na mesma tela.</p>
+            </div>
+          </li>
+          <li class="feature-split__check-item">
+            <svg class="feature-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <div class="feature-split__check-content">
+              <strong class="feature-split__check-subtitle">Relatório de temperatura na entrega</strong>
+              <p class="feature-split__check-body">O registro completo da viagem acompanha o comprovante de entrega, pronto para a sua auditoria.</p>
+            </div>
+          </li>
+          <li class="feature-split__check-item">
+            <svg class="feature-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <div class="feature-split__check-content">
+              <strong class="feature-split__check-subtitle">Rastreamento 24 horas</strong>
+              <p class="feature-split__check-body">Veículos monitorados por satélite e consulta da nota fiscal pelo portal de rastreamento.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="feature-split__media">
+        <img class="feature-split__image" src="assets/images/dashboard-operador.webp" alt="Operador da central de monitoramento acompanhando informações das entregas em um computador" width="894" height="630" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       7. MODALIDADES — services-grid (base)
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="services-grid" id="modalidades" aria-labelledby="modalidades-title">
+    <div class="container">
+      <header class="services-grid__header">
+        <p class="services-grid__eyebrow">Modalidades</p>
+        <h2 class="services-grid__title" id="modalidades-title">Do abastecimento regular à entrega urgente</h2>
+        <p class="services-grid__description">Os serviços da BR Samor, aplicados à rotina da indústria farmacêutica e da saúde.</p>
+      </header>
+
+      <div class="services-grid__list">
+        <div class="services-grid__card">
+          <div class="services-grid__icon-wrap"><svg aria-hidden="true" focusable="false"><use href="#icon-truck"/></svg></div>
+          <h3 class="services-grid__card-title">Rodo Express refrigerado</h3>
+          <p class="services-grid__card-body">Veículo dedicado com prazo de carga aérea. Ideal para transferências entre fábrica, centro de distribuição e distribuidoras.</p>
+          <a href="#cotacao" class="services-grid__card-link" aria-label="Solicitar cotação de Rodo Express refrigerado"><svg aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg></a>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-wrap"><svg aria-hidden="true" focusable="false"><use href="#icon-shield"/></svg></div>
+          <h3 class="services-grid__card-title">Rodo Blindado</h3>
+          <p class="services-grid__card-body">Para cargas de altíssimo valor: blindagem, gerenciamento de risco, monitoramento em tempo real e cobertura integral.</p>
+          <a href="#cotacao" class="services-grid__card-link" aria-label="Solicitar cotação de Rodo Blindado"><svg aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg></a>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-wrap"><svg aria-hidden="true" focusable="false"><use href="#icon-plane"/></svg></div>
+          <h3 class="services-grid__card-title">Priority</h3>
+          <p class="services-grid__card-body">Coleta com veículo exclusivo e embarque no primeiro voo disponível. Para rupturas de estoque e demandas hospitalares urgentes.</p>
+          <a href="#cotacao" class="services-grid__card-link" aria-label="Solicitar cotação do serviço Priority"><svg aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg></a>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-wrap"><svg aria-hidden="true" focusable="false"><use href="#icon-user"/></svg></div>
+          <h3 class="services-grid__card-title">Portador Exclusivo</h3>
+          <p class="services-grid__card-body">Um colaborador acompanha a carga do início ao fim, sem restrição de horário. Indicado para oncológicos e terapias críticas.</p>
+          <a href="#cotacao" class="services-grid__card-link" aria-label="Solicitar cotação de Portador Exclusivo"><svg aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg></a>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-wrap"><svg aria-hidden="true" focusable="false"><use href="#icon-clock"/></svg></div>
+          <h3 class="services-grid__card-title">Standard</h3>
+          <p class="services-grid__card-body">Coleta em horário comercial e embarque aéreo no prazo padrão de cada localidade, para a reposição do dia a dia.</p>
+          <a href="#cotacao" class="services-grid__card-link" aria-label="Solicitar cotação do serviço Standard"><svg aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg></a>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-wrap"><svg aria-hidden="true" focusable="false"><use href="#icon-refresh"/></svg></div>
+          <h3 class="services-grid__card-title">Logística Reversa</h3>
+          <p class="services-grid__card-body">Coleta no cliente final e retorno ao fabricante, para recolhimento de lotes, devoluções e produtos vencidos.</p>
+          <a href="#cotacao" class="services-grid__card-link" aria-label="Solicitar cotação de Logística Reversa"><svg aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       8. CONFORMIDADE — services-grid--icon-box
+       VALIDAR: cada item precisa de comprovação (AFE, laudos, POPs).
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="services-grid services-grid--icon-box" id="conformidade" aria-labelledby="conformidade-title">
+    <div class="container">
+      <header class="services-grid__header">
+        <p class="services-grid__eyebrow">Qualidade e conformidade</p>
+        <h2 class="services-grid__title" id="conformidade-title">Pronta para a qualificação de fornecedores da sua empresa</h2>
+        <p class="services-grid__description">Operação alinhada às boas práticas de distribuição, armazenagem e transporte de medicamentos exigidas pela Anvisa.</p>
+      </header>
+
+      <div class="services-grid__list">
+        <div class="services-grid__card">
+          <div class="services-grid__icon-box"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-file-check"/></svg></div>
+          <div class="services-grid__card-text">
+            <h3 class="services-grid__card-title">Autorizada pela Anvisa</h3>
+            <p class="services-grid__card-body">Autorização de Funcionamento de Empresa (AFE) para o transporte de medicamentos e produtos para saúde.</p>
+          </div>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-box"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-clipboard"/></svg></div>
+          <div class="services-grid__card-text">
+            <h3 class="services-grid__card-title">RDC 430/2020</h3>
+            <p class="services-grid__card-body">Boas práticas de transporte de medicamentos: procedimentos documentados, rastreabilidade e responsabilidade compartilhada.</p>
+          </div>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-box"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-thermometer"/></svg></div>
+          <div class="services-grid__card-text">
+            <h3 class="services-grid__card-title">RDC 653/2022</h3>
+            <p class="services-grid__card-body">Monitoramento de temperatura e umidade da coleta ao destino final, com instrumentos calibrados.</p>
+          </div>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-box"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-route"/></svg></div>
+          <div class="services-grid__card-text">
+            <h3 class="services-grid__card-title">Rotas mapeadas</h3>
+            <p class="services-grid__card-body">Estudo de risco térmico e de segurança de cada rota antes do início da operação.</p>
+          </div>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-box"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-gauge"/></svg></div>
+          <div class="services-grid__card-text">
+            <h3 class="services-grid__card-title">Qualificação térmica</h3>
+            <p class="services-grid__card-body">Veículos qualificados e mapeados termicamente, com laudos disponíveis para auditoria.</p>
+          </div>
+        </div>
+
+        <div class="services-grid__card">
+          <div class="services-grid__icon-box"><svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-alert"/></svg></div>
+          <div class="services-grid__card-text">
+            <h3 class="services-grid__card-title">Gestão de desvios</h3>
+            <p class="services-grid__card-body">Plano de contingência, investigação e comunicação imediata ao cliente em qualquer ocorrência.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       9. REDE NACIONAL — feature-split (mapa)
+       VALIDAR: lista oficial de bases e quais operam a frota refrigerada.
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="feature-split" id="rede" aria-labelledby="rede-title">
+    <div class="feature-split__inner container">
+      <div class="feature-split__content">
+        <span class="feature-split__eyebrow">Onde estamos</span>
+        <h2 class="feature-split__title" id="rede-title">Rodoviário e aéreo integrados, em todo o Brasil</h2>
+        <p class="feature-split__description">
+          Matriz no Espírito Santo, bases nas principais regiões do país e parceria com as companhias aéreas para combinar o caminhão refrigerado com o prazo do avião.
+        </p>
+        <ul class="feature-split__checklist" aria-label="Estrutura da rede">
+          <li class="feature-split__check-item">
+            <svg class="feature-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <div class="feature-split__check-content">
+              <strong class="feature-split__check-subtitle">Matriz e bases</strong>
+              <ul class="feature-split__check-body feature-split__check-body--columns" role="list">
+                <li>Serra/ES (matriz)</li>
+                <li>Guarulhos/SP</li>
+                <li>Contagem/MG</li>
+                <li>Curitiba/PR</li>
+                <li>Londrina/PR</li>
+                <li>Porto Belo/SC</li>
+                <li>Porto Alegre/RS</li>
+                <li>Brasília/DF</li>
+                <li>Jaboatão/PE</li>
+                <li>Manaus/AM</li>
+              </ul>
+            </div>
+          </li>
+          <li class="feature-split__check-item">
+            <svg class="feature-split__check-icon" aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg>
+            <div class="feature-split__check-content">
+              <strong class="feature-split__check-subtitle">Integração aérea</strong>
+              <p class="feature-split__check-body">Embarques com GOL, LATAM Cargo e Azul para urgências e longas distâncias.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="feature-split__media feature-split__media--transparent">
+        <img class="feature-split__image feature-split__image--contain" src="assets/images/mapa-brasil.webp" alt="Mapa do Brasil com um caminhão da BR Samor em primeiro plano e um avião ao fundo" width="694" height="630" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       10. COMO FUNCIONA — steps-horizontal
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="steps-horizontal" aria-labelledby="steps-title">
+    <div class="container">
+      <div class="steps-horizontal__header">
+        <span class="steps-horizontal__eyebrow">Como funciona</span>
+        <h2 class="steps-horizontal__title" id="steps-title">Da cotação à entrega comprovada</h2>
+        <p class="steps-horizontal__description">Um processo pensado para o rigor da indústria farmacêutica.</p>
+      </div>
+
+      <ol class="steps-horizontal__list">
+        <li class="steps-horizontal__item">
+          <span class="steps-horizontal__number" aria-hidden="true">01</span>
+          <h3 class="steps-horizontal__item-title">Cotação</h3>
+          <p class="steps-horizontal__item-description">Você informa o produto, a faixa de temperatura, as rotas e o volume.</p>
+        </li>
+        <li class="steps-horizontal__item">
+          <span class="steps-horizontal__number" aria-hidden="true">02</span>
+          <h3 class="steps-horizontal__item-title">Qualificação</h3>
+          <p class="steps-horizontal__item-description">Enviamos a documentação para o seu processo de qualificação de fornecedor.</p>
+        </li>
+        <li class="steps-horizontal__item">
+          <span class="steps-horizontal__number" aria-hidden="true">03</span>
+          <h3 class="steps-horizontal__item-title">Transporte monitorado</h3>
+          <p class="steps-horizontal__item-description">Coleta e viagem com temperatura e localização acompanhadas 24 horas.</p>
+        </li>
+        <li class="steps-horizontal__item">
+          <span class="steps-horizontal__number" aria-hidden="true">04</span>
+          <h3 class="steps-horizontal__item-title">Entrega comprovada</h3>
+          <p class="steps-horizontal__item-description">Comprovante de entrega acompanhado do relatório de temperatura da viagem.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       11. FAQ — faq-accordion--split
+       VALIDAR: respostas técnicas com a BR Samor.
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="faq-accordion faq-accordion--split" id="faq" aria-labelledby="faq-title">
+    <div class="faq-accordion__inner container">
+      <div class="faq-accordion__split-heading">
+        <h2 class="faq-accordion__split-title" id="faq-title">Dúvidas<br>frequentes</h2>
+      </div>
+
+      <div class="faq-accordion__list">
+        <details class="faq-accordion__item">
+          <summary class="faq-accordion__trigger">
+            <span class="faq-accordion__question">Quais faixas de temperatura vocês atendem?</span>
+            <span class="faq-accordion__icon-wrap" aria-hidden="true">
+              <svg class="faq-accordion__icon-plus" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line class="icon-plus__v" x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-accordion__panel"><div class="faq-accordion__panel-inner">
+            <p class="faq-accordion__answer">A frota refrigerada atende cargas refrigeradas de 2 °C a 8 °C, como vacinas, insulinas e biológicos, e cargas em ambiente controlado de 15 °C a 25 °C. A temperatura é programada conforme a especificação do fabricante de cada produto.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-accordion__item">
+          <summary class="faq-accordion__trigger">
+            <span class="faq-accordion__question">Os veículos são qualificados termicamente?</span>
+            <span class="faq-accordion__icon-wrap" aria-hidden="true">
+              <svg class="faq-accordion__icon-plus" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line class="icon-plus__v" x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-accordion__panel"><div class="faq-accordion__panel-inner">
+            <p class="faq-accordion__answer">Sim. Os baús passam por mapeamento térmico e testes de desempenho, e os laudos ficam disponíveis para a auditoria e a qualificação de fornecedores da sua empresa.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-accordion__item">
+          <summary class="faq-accordion__trigger">
+            <span class="faq-accordion__question">Recebo o registro de temperatura da viagem?</span>
+            <span class="faq-accordion__icon-wrap" aria-hidden="true">
+              <svg class="faq-accordion__icon-plus" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line class="icon-plus__v" x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-accordion__panel"><div class="faq-accordion__panel-inner">
+            <p class="faq-accordion__answer">Sim. Você acompanha a temperatura em tempo real pelo dashboard e recebe o relatório completo da viagem junto com o comprovante de entrega.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-accordion__item">
+          <summary class="faq-accordion__trigger">
+            <span class="faq-accordion__question">O que acontece se a temperatura sair da faixa?</span>
+            <span class="faq-accordion__icon-wrap" aria-hidden="true">
+              <svg class="faq-accordion__icon-plus" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line class="icon-plus__v" x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-accordion__panel"><div class="faq-accordion__panel-inner">
+            <p class="faq-accordion__answer">Os sensores disparam um alarme para a central de monitoramento, que aciona o plano de contingência e avisa você imediatamente. Toda ocorrência é investigada e documentada.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-accordion__item">
+          <summary class="faq-accordion__trigger">
+            <span class="faq-accordion__question">A BR Samor é autorizada pela Anvisa?</span>
+            <span class="faq-accordion__icon-wrap" aria-hidden="true">
+              <svg class="faq-accordion__icon-plus" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line class="icon-plus__v" x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-accordion__panel"><div class="faq-accordion__panel-inner">
+            <p class="faq-accordion__answer">Sim. A BR Samor tem Autorização de Funcionamento de Empresa (AFE) da Anvisa para o transporte de medicamentos e produtos para saúde. A documentação é enviada no processo de qualificação.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-accordion__item">
+          <summary class="faq-accordion__trigger">
+            <span class="faq-accordion__question">Como funciona o seguro da carga?</span>
+            <span class="faq-accordion__icon-wrap" aria-hidden="true">
+              <svg class="faq-accordion__icon-plus" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line class="icon-plus__v" x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-accordion__panel"><div class="faq-accordion__panel-inner">
+            <p class="faq-accordion__answer">A BR Samor trabalha com apólice própria e gerenciamento de risco em todas as operações. As condições de cobertura são apresentadas na proposta comercial, de acordo com o valor e o perfil da carga.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-accordion__item">
+          <summary class="faq-accordion__trigger">
+            <span class="faq-accordion__question">Quais regiões vocês atendem?</span>
+            <span class="faq-accordion__icon-wrap" aria-hidden="true">
+              <svg class="faq-accordion__icon-plus" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line class="icon-plus__v" x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+            </span>
+          </summary>
+          <div class="faq-accordion__panel"><div class="faq-accordion__panel-inner">
+            <p class="faq-accordion__answer">Todo o território nacional, combinando a rede de bases da BR Samor com o transporte aéreo. Informe origem e destinos na cotação para recebermos a melhor solução para a sua rota.</p>
+          </div></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       12. COTAÇÃO — form-lead-capture
+       INTEGRAR: substituir o <form> pelo formulário do HubSpot (portal 50613193),
+       mantendo os mesmos campos. Até lá, o formulário não envia dados.
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="form-lead-capture" id="cotacao" aria-labelledby="cotacao-title">
+    <div class="container">
+      <div class="form-lead-capture__grid">
+        <div class="form-lead-capture__copy">
+          <span class="form-lead-capture__eyebrow">Cotação farma</span>
+          <h2 class="form-lead-capture__title" id="cotacao-title">Conte sobre a sua operação e receba uma proposta sob medida</h2>
+          <p class="form-lead-capture__description">
+            Nosso time analisa o seu produto, as rotas e o volume para indicar a melhor combinação de frota refrigerada, modalidade e protocolo de segurança.
+          </p>
+          <ul class="form-lead-capture__benefits" role="list">
+            <li><svg aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg> Atendimento por especialista em transporte de medicamentos</li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg> Documentação pronta para a qualificação de fornecedores</li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#icon-check-circle"/></svg> Proposta com faixa de temperatura, modalidade e seguro</li>
+          </ul>
+        </div>
+
+        <div class="form-lead-capture__card">
+          <h3 class="form-lead-capture__card-title">Solicitar cotação</h3>
+          <p class="form-lead-capture__card-subtitle">Todos os campos são obrigatórios, exceto a mensagem.</p>
+
+          <form class="form-lead-capture__form" data-js="lead-form">
+            <div class="form-lead-capture__row">
+              <div class="input-field">
+                <label class="input-field__label" for="cot-nome">Nome</label>
+                <input class="input-field__control" type="text" id="cot-nome" name="nome" placeholder="Seu nome" autocomplete="name" required>
+              </div>
+              <div class="input-field">
+                <label class="input-field__label" for="cot-empresa">Empresa</label>
+                <input class="input-field__control" type="text" id="cot-empresa" name="empresa" placeholder="Nome da empresa" autocomplete="organization" required>
+              </div>
+            </div>
+
+            <div class="form-lead-capture__row">
+              <div class="input-field">
+                <label class="input-field__label" for="cot-email">E-mail corporativo</label>
+                <input class="input-field__control" type="email" id="cot-email" name="email" placeholder="voce@empresa.com.br" autocomplete="email" required>
+              </div>
+              <div class="input-field">
+                <label class="input-field__label" for="cot-telefone">Telefone</label>
+                <input class="input-field__control" type="tel" id="cot-telefone" name="telefone" placeholder="(00) 00000-0000" autocomplete="tel" required>
+              </div>
+            </div>
+
+            <div class="form-lead-capture__row">
+              <div class="input-field">
+                <label class="input-field__label" for="cot-produto">Tipo de produto</label>
+                <select class="input-field__control" id="cot-produto" name="produto" required>
+                  <option value="">Selecione</option>
+                  <option>Medicamentos termolábeis</option>
+                  <option>Medicamentos em geral</option>
+                  <option>Oncológicos / alto custo</option>
+                  <option>Materiais cirúrgicos e correlatos</option>
+                  <option>Outros produtos para saúde</option>
+                </select>
+              </div>
+              <div class="input-field">
+                <label class="input-field__label" for="cot-faixa">Faixa de temperatura</label>
+                <select class="input-field__control" id="cot-faixa" name="faixa" required>
+                  <option value="">Selecione</option>
+                  <option>2 °C a 8 °C (refrigerado)</option>
+                  <option>15 °C a 25 °C (ambiente controlado)</option>
+                  <option>As duas faixas</option>
+                  <option>Ainda não sei</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-lead-capture__row">
+              <div class="input-field">
+                <label class="input-field__label" for="cot-rotas">Origem e destinos</label>
+                <input class="input-field__control" type="text" id="cot-rotas" name="rotas" placeholder="Ex.: Guarulhos/SP para o Nordeste" required>
+              </div>
+              <div class="input-field">
+                <label class="input-field__label" for="cot-frequencia">Frequência</label>
+                <select class="input-field__control" id="cot-frequencia" name="frequencia" required>
+                  <option value="">Selecione</option>
+                  <option>Pontual</option>
+                  <option>Semanal</option>
+                  <option>Diária</option>
+                  <option>Contrato dedicado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-field">
+              <label class="input-field__label" for="cot-mensagem">Mensagem <span class="input-field__optional">(opcional)</span></label>
+              <textarea class="input-field__control" id="cot-mensagem" name="mensagem" rows="3" placeholder="Volume estimado, valor médio da carga, exigências específicas…"></textarea>
+            </div>
+
+            <button class="button button--filled button--lg form-lead-capture__submit" type="submit">Solicitar cotação</button>
+            <p class="form-lead-capture__note">Após o envio, um especialista da BR Samor entra em contato para entender a sua operação.</p>
+            <p class="form-lead-capture__status" data-js="lead-form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════════════════
+     13. FOOTER — footer-full
+══════════════════════════════════════════════════════════════ -->
+<footer class="footer-full">
+  <div class="footer-full__grid container">
+    <div class="footer-full__brand">
+      <a href="https://home.brsamor.com.br/home" class="footer-full__logo" aria-label="BR Samor, site institucional">
+        <img class="footer-full__logo-img" src="assets/images/logo-br-samor.png" alt="BR Samor, Transportando seu negócio" width="156" height="32">
+      </a>
+      <p class="footer-full__description">
+        Transporte aéreo e rodoviário de cargas de alto valor desde 2009. Agora com frota refrigerada para medicamentos e produtos para saúde.
+      </p>
+      <a href="#cotacao" class="button button--outline button--md">
+        Solicitar cotação
+        <svg class="button__icon" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-full__links">
+      <div class="footer-full__group">
+        <p class="footer-full__group-title">Transporte farma</p>
+        <ul class="footer-full__group-list" role="list">
+          <li><a class="footer-full__group-link" href="#temperaturas">Faixas de temperatura</a></li>
+          <li><a class="footer-full__group-link" href="#frota">Frota refrigerada</a></li>
+          <li><a class="footer-full__group-link" href="#monitoramento">Monitoramento</a></li>
+          <li><a class="footer-full__group-link" href="#conformidade">Conformidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-full__group">
+        <p class="footer-full__group-title">BR Samor</p>
+        <ul class="footer-full__group-list" role="list">
+          <li><a class="footer-full__group-link" href="https://home.brsamor.com.br/home">Site institucional</a></li>
+          <li><a class="footer-full__group-link" href="http://www.sislognet.com.br/cliente/account/index/3025">Rastreamento</a></li>
+          <li><a class="footer-full__group-link" href="https://atracaodetalentos.totvs.app/carreirasbrsamor">Trabalhe conosco</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-full__group">
+        <p class="footer-full__group-title">Contato</p>
+        <ul class="footer-full__group-list" role="list">
+          <li>
+            <a class="footer-full__group-link" href="tel:+552722338840">
+              <svg class="footer-full__group-link-icon" aria-hidden="true" focusable="false"><use href="#icon-phone"/></svg>
+              <span class="footer-full__group-link-text">(27) 2233-8840</span>
+            </a>
+          </li>
+          <li>
+            <a class="footer-full__group-link" href="mailto:comercial@brsamor.com.br">
+              <svg class="footer-full__group-link-icon" aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg>
+              <span class="footer-full__group-link-text">comercial@brsamor.com.br</span>
+            </a>
+          </li>
+          <li>
+            <span class="footer-full__group-link">
+              <svg class="footer-full__group-link-icon" aria-hidden="true" focusable="false"><use href="#icon-pin"/></svg>
+              <span class="footer-full__group-link-text">Serra/ES</span>
+            </span>
+          </li>
+        </ul>
+        <div class="footer-full__group-social" style="margin-block-start: var(--space-lg)">
+          <a href="https://www.instagram.com/brsamor/" class="footer-full__social-link" aria-label="Instagram da BR Samor">
+            <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#icon-instagram"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/br-samor" class="footer-full__social-link" aria-label="LinkedIn da BR Samor">
+            <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#icon-linkedin"/></svg>
+          </a>
+          <a href="https://www.facebook.com/brsamor/" class="footer-full__social-link" aria-label="Facebook da BR Samor">
+            <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#icon-facebook"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="footer-full__divider">
+
+  <div class="footer-full__bottom">
+    <div class="footer-full__bottom-inner container">
+      <p class="footer-full__copyright">© 2026 B R Samor Logística Express Ltda. · CNPJ 10.750.264/0001-16</p>
+      <ul class="footer-full__bottom-links" role="list">
+        <li><a class="footer-full__bottom-link" href="https://www.brsamor.com.br/politica-de-privacidade-e-termos-de-uso/">Política de Privacidade e Termos de Uso</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* header-simple — script de interatividade mobile (DS) */
+(function () {
+  'use strict';
+  document.querySelectorAll('.header-simple').forEach(function (header) {
+    var toggle = header.querySelector('[data-js="nav-toggle"]');
+    var panel  = header.querySelector('[data-js="nav-panel"]');
+    if (!toggle || !panel) return;
+
+    function setOpen(open) {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+      panel.classList.toggle('header-simple__mobile-panel--open', open);
+    }
+
+    toggle.addEventListener('click', function () {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    /* Fecha o painel ao escolher um link (âncoras da mesma página) */
+    panel.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape' || toggle.getAttribute('aria-expanded') !== 'true') return;
+      setOpen(false);
+      toggle.focus();
+    });
+  });
+})();
+
+/* faq-accordion — accordion exclusivo (DS) */
+(function () {
+  'use strict';
+  document.querySelectorAll('.faq-accordion__list').forEach(function (list) {
+    var items = Array.from(list.querySelectorAll('.faq-accordion__item'));
+    items.forEach(function (item) {
+      item.addEventListener('toggle', function () {
+        if (!item.open) return;
+        items.forEach(function (other) {
+          if (other !== item && other.open) other.removeAttribute('open');
+        });
+      });
+    });
+  });
+})();
+
+/* form-lead-capture — provisório até a integração com o HubSpot.
+   Valida os campos e avisa que o envio ainda não está ativo (não simula sucesso). */
+(function () {
+  'use strict';
+  var form = document.querySelector('[data-js="lead-form"]');
+  if (!form) return;
+  var status = form.querySelector('[data-js="lead-form-status"]');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    status.textContent = 'Formulário em homologação: a integração com o HubSpot ainda será configurada, então os dados não foram enviados.';
+  });
+})();
+</script>
+
+</body>
+</html>

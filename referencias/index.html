@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referências Farma — BR Samor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0B2638; --navy-2: #113852; --orange: #F05A22; --orange-text: #C2410C;
+      --ice: #E3F0F8; --bg: #F4F7FA; --line: #DCE3E8; --text: #2E4558; --muted: #5B6B75;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Archivo', system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.55; }
+    .wrap { max-width: 1200px; margin-inline: auto; padding-inline: 24px; }
+    header.top { background: var(--navy); color: #fff; padding: 56px 0 48px; }
+    header.top .eyebrow { color: #FFB089; font-weight: 600; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+    header.top h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.05; margin: 12px 0 16px; letter-spacing: -.02em; }
+    header.top p { max-width: 70ch; color: rgba(255,255,255,.82); }
+    .diag { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 32px; }
+    .diag div { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 16px; font-size: 14px; color: rgba(255,255,255,.85); }
+    .diag strong { display: block; color: #fff; margin-bottom: 4px; }
+    h2.sec { font-size: clamp(24px, 3vw, 34px); color: var(--navy-2); letter-spacing: -.01em; margin: 56px 0 8px; }
+    p.lead { color: var(--muted); max-width: 75ch; margin-bottom: 24px; }
+    .refs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .ref { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+    .ref b { color: var(--navy-2); }
+    .ref a { color: var(--orange-text); font-size: 14px; }
+    .ref p { font-size: 14px; color: var(--muted); margin-top: 6px; }
+    .stars { color: var(--orange); letter-spacing: 2px; font-size: 13px; }
+    ol.blueprint { list-style: none; counter-reset: s; display: grid; gap: 28px; }
+    ol.blueprint > li { counter-increment: s; background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: 1fr; }
+    @media (min-width: 900px) { ol.blueprint > li { grid-template-columns: 1.35fr 1fr; } }
+    .shot { background: #0f172a; display: flex; flex-direction: column; gap: 2px; }
+    .shot img { width: 100%; height: auto; display: block; }
+    .info { padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .info .num { font-size: 13px; font-weight: 700; color: var(--orange-text); letter-spacing: .06em; text-transform: uppercase; }
+    .info .num::before { content: "Seção " counter(s, decimal-leading-zero) " · "; }
+    .info h3 { font-size: 22px; color: var(--navy-2); line-height: 1.2; }
+    .info .from { font-size: 13px; color: var(--muted); }
+    .info .from a { color: var(--orange-text); }
+    .info h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-top: 4px; }
+    .info p, .info li { font-size: 15px; }
+    .info ul { padding-left: 18px; display: grid; gap: 4px; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--ice); color: #1F6F99; margin-right: 6px; }
+    .tag--new { background: #FDE7DC; color: var(--orange-text); }
+    .tag--warn { background: #FEF3C7; color: #92400E; }
+    footer { padding: 56px 0; color: var(--muted); font-size: 14px; }
+    .styles { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+    .styles figure { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    .styles img { width: 100%; display: block; }
+    .styles figcaption { padding: 12px 16px; font-size: 14px; color: var(--muted); }
+    .styles figcaption b { color: var(--navy-2); }
+  </style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="eyebrow">BR Samor · Transporte farma · Pesquisa de referências</span>
+    <h1>Referências internacionais para refazer a página</h1>
+    <p>Analisei 13 sites de logística farmacêutica e cadeia fria (EUA e Europa). Abaixo está uma proposta de página nova, seção por seção. Cada seção mostra a referência de onde ela vem, o que copiar e como adaptar para a BR Samor.</p>
+    <div class="diag">
+      <div><strong>Por que a versão atual ficou fraca</strong>Fundos claros parecidos em sequência, cards genéricos e nenhum elemento próprio do setor. Ela parece um template.</div>
+      <div><strong>O que as boas referências têm</strong>Hero escuro com dado "ao vivo" da carga, números grandes, uma ficha técnica do veículo e contraste forte entre seções claras e escuras.</div>
+      <div><strong>Direção recomendada</strong><b>Controlant</b> para o visual e a estrutura, e <b>Girteka</b> para o conteúdo de transporte rodoviário refrigerado. Os dois juntos cobrem exatamente o caso da BR Samor.</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h2 class="sec">Sites analisados</h2>
+  <p class="lead">As estrelas indicam o quanto cada site serve como referência para esta página.</p>
+  <div class="refs">
+    <div class="ref"><span class="stars">★★★★★</span><br><b>Controlant</b> · monitoramento farma<br><a href="https://controlant.com/">controlant.com</a><p>A melhor referência visual: hero com widget de temperatura, números, cases e personas.</p></div>
+    <div class="ref"><span class="stars">★★★★★</span><br><b>Girteka</b> · transporte rodoviário farma (Europa)<br><a href="https://girteka.eu/pharmaceutical-and-healthcare-logistics/">girteka.eu</a><p>O concorrente mais parecido com a BR Samor: frota refrigerada, ficha técnica do veículo e cotação.</p></div>
+    <div class="ref"><span class="stars">★★★★☆</span><br><b>Tive</b> · rastreamento de cargas<br><a href="https://www.tive.com/">tive.com</a><p>Mapa com rota e painel de sensores, além de mural de logos em fundo escuro.</p></div>
+    <div class="ref"><span class="stars">★★★★☆</span><br><b>Cryoport</b> · cadeia fria para terapias<br><a href="https://www.cryoport.com/">cryoport.com</a><p>Jornada em arco, da coleta ao paciente.</p></div>
+    <div class="ref"><span class="stars">★★★☆☆</span><br><b>World Courier (Cencora)</b><br><a href="https://www.worldcourier.com/">worldcourier.com</a><p>Narrativa centrada no paciente, com vídeo e faixa de números em gradiente.</p></div>
+    <div class="ref"><span class="stars">★★★☆☆</span><br><b>Biocair</b> · cadeia fria<br><a href="https://www.biocair.com/expertise/cold-chain">biocair.com</a><p>Lista de faixas de temperatura e FAQ em card com título lateral.</p></div>
+    <div class="ref"><span class="stars">★★★☆☆</span><br><b>Flexport</b> · logística (referência de estilo)<br><a href="https://www.flexport.com/">flexport.com</a><p>Bento com números grandes e mapa da rede em fundo escuro.</p></div>
+    <div class="ref"><span class="stars">★★☆☆☆</span><br><b>Einride · CSafe · Envirotainer · GEODIS · Marken · Kuehne+Nagel</b><p>Ideias pontuais de estilo (tipografia editorial, faixas de etapas). Nada que valha clonar inteiro.</p></div>
+  </div>
+
+  <h2 class="sec">Proposta de página nova, seção por seção</h2>
+  <p class="lead">Ordem sugerida para a página nova. <span class="tag">DS</span> indica que já existe componente parecido no design system. <span class="tag tag--new">Novo</span> indica que precisa virar componente novo. <span class="tag tag--warn">Depende do cliente</span> indica que só funciona com informação ou material da BR Samor.</p>
+
+  <ol class="blueprint">
+
+    <li>
+      <div class="shot"><img src="img/controlant-hero.jpg" alt="Hero do site Controlant: fundo azul-marinho com foto escurecida de um depósito, título grande à esquerda e um card de temperatura ao vivo à direita"></div>
+      <div class="info">
+        <span class="num">Hero</span>
+        <h3>Hero escuro com card de "viagem ao vivo"</h3>
+        <span class="from">Referência: <a href="https://controlant.com/">Controlant</a></span>
+        <div><span class="tag tag--new">Novo</span></div>
+        <h4>O que copiar</h4>
+        <ul><li>Foto de fundo escurecida em azul-marinho e título de duas linhas bem grande</li><li>Card de telemetria com localização, temperatura grande, gráfico da faixa e o selo "Dentro da faixa"</li><li>Um botão principal e um link secundário</li></ul>
+        <h4>Como fica na BR Samor</h4>
+        <p>Foto do baú refrigerado ao fundo e um card "Carga BR-2041 · Guarulhos → Recife · <b>4,8 °C</b> · dentro da faixa 2–8 °C", com uma animação leve no gráfico. Esse card vira a "marca registrada" da página.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/girteka-hero.jpg" alt="Hero do site Girteka com foto de medicamentos em tom verde-azulado e uma barra de pílulas de navegação abaixo"></div>
+      <div class="info">
+        <span class="num">Navegação</span>
+        <h3>Sub-navegação em pílulas fixa no topo</h3>
+        <span class="from">Referência: <a href="https://girteka.eu/pharmaceutical-and-healthcare-logistics/">Girteka</a></span>
+        <div><span class="tag tag--new">Novo</span></div>
+        <h4>O que copiar</h4>
+        <p>Uma barra de pílulas (Capacidades · Frota · Monitoramento · Cotação · FAQ) que fica presa ao rolar. Ajuda muito em página longa e deixa a cotação sempre a um clique.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/controlant-numeros.jpg" alt="Seção de números da Controlant: título-manifesto grande, frase com números em azul e cinco métricas grandes em colunas, seguidas de faixa de logos"></div>
+      <div class="info">
+        <span class="num">Prova</span>
+        <h3>Manifesto + números grandes + faixa de logos</h3>
+        <span class="from">Referência: <a href="https://controlant.com/">Controlant</a></span>
+        <div><span class="tag">DS · stats-grid</span><span class="tag tag--warn">Depende do cliente</span></div>
+        <h4>O que copiar</h4>
+        <ul><li>Uma frase-manifesto com números destacados em cor no meio do texto</li><li>Cinco métricas, cada uma com uma linha de explicação</li><li>Logos em cinza logo abaixo</li></ul>
+        <h4>Como fica na BR Samor</h4>
+        <p>"<b>R$ 15 bilhões</b> em mercadorias transportadas, <b>17 anos</b> em carga de alto valor." Métricas: 2009 · 10 bases · 24/7 · faixas 2–8 °C e 15–25 °C · tempo de resposta. Na faixa de logos: GOL, LATAM Cargo e Azul.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/controlant-porque.jpg" alt="Seção escura da Controlant com mapa-múndi ao fundo e o título 'Supply chains are changing faster than the way most shipments are monitored'"></div>
+      <div class="info">
+        <span class="num">Problema</span>
+        <h3>Seção escura "por que agora" com mapa</h3>
+        <span class="from">Referência: <a href="https://controlant.com/">Controlant</a></span>
+        <div><span class="tag tag--new">Novo</span></div>
+        <h4>Como fica na BR Samor</h4>
+        <p>Mapa do Brasil escuro com pontos nas regiões de risco e o dado da nstech: "Medicamentos passaram de <b>1,7%</b> para <b>22,3%</b> dos prejuízos com roubo de cargas." Ao lado, uma segunda razão: "Termolábeis perdem eficácia fora de 2–8 °C." São dois riscos, e uma transportadora resolve os dois.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/girteka-carreta.jpg" alt="Seção 'Refrigerated Trailer' da Girteka: ilustração lateral de uma carreta refrigerada e um bloco com quatro colunas de especificações e checklists"></div>
+      <div class="info">
+        <span class="num">Frota</span>
+        <h3>Ficha técnica do veículo refrigerado</h3>
+        <span class="from">Referência: <a href="https://girteka.eu/pharmaceutical-and-healthcare-logistics/">Girteka</a></span>
+        <div><span class="tag tag--new">Novo</span><span class="tag tag--warn">Depende do cliente</span></div>
+        <h4>O que copiar</h4>
+        <p>Imagem lateral grande do veículo e, embaixo, quatro colunas: <b>faixa de temperatura</b> · <b>capacidade</b> · <b>dimensões</b> · <b>segurança</b>, cada uma com um checklist. Se houver mais de um tipo de veículo, abas alternam entre eles.</p>
+        <h4>Como fica na BR Samor</h4>
+        <p>É a seção mais importante para o lançamento da frota. Abas "Toco/Truck refrigerado" e "VUC refrigerado" (a confirmar), com a foto real do baú. Precisa dos dados técnicos do cliente.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/girteka-icones.jpg" alt="Grade de 13 ícones com títulos em caixa alta da Girteka: frota própria, faixas de temperatura, certificado GDP, monitoramento, segurança TAPA, suporte 24/7 e outros"></div>
+      <div class="info">
+        <span class="num">Capacidades</span>
+        <h3>Grade de capacidades com ícones</h3>
+        <span class="from">Referência: <a href="https://girteka.eu/pharmaceutical-and-healthcare-logistics/">Girteka</a></span>
+        <div><span class="tag">DS · services-grid</span></div>
+        <h4>Como fica na BR Samor</h4>
+        <p>Doze itens curtos (título + uma linha) no lugar dos cards grandes: Frota própria · 2–8 °C e 15–25 °C · Autorizada Anvisa · Monitoramento 24/7 · Rotas mapeadas · Escolta e blindagem · Apólice própria · Suporte dedicado · Alertas de desvio · Integração aérea · Relatório de temperatura · Logística reversa.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/tive-mapa.jpg" alt="Interface escura da Tive: mapa com rota azul até um ponto verde e um painel lateral com gráficos de temperatura, umidade, luz e choque"></div>
+      <div class="info">
+        <span class="num">Monitoramento</span>
+        <h3>Mapa da rota com painel de sensores</h3>
+        <span class="from">Referência: <a href="https://www.tive.com/">Tive</a> (e o hero da Controlant)</span>
+        <div><span class="tag tag--new">Novo</span></div>
+        <h4>O que copiar</h4>
+        <p>Um mockup de interface feito em HTML/SVG, sem print de tela: mapa estilizado, rota desenhada e um painel com gráfico de temperatura, porta do baú e status. Ao lado, três ou quatro tópicos curtos.</p>
+        <h4>Como fica na BR Samor</h4>
+        <p>Substitui a foto genérica do "operador no computador". Mostra exatamente o que o cliente recebe: temperatura, localização e relatório da viagem.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/cryoport-jornada.jpg" alt="Diagrama em arco da Cryoport ligando ícones das etapas da cadeia, da coleta até a entrega ao paciente"></div>
+      <div class="info">
+        <span class="num">Como funciona</span>
+        <h3>Jornada da carga em arco</h3>
+        <span class="from">Referência: <a href="https://www.cryoport.com/">Cryoport</a></span>
+        <div><span class="tag">DS · steps-horizontal (evolução)</span></div>
+        <h4>Como fica na BR Samor</h4>
+        <p>Um arco em SVG: Indústria → Coleta refrigerada → Rodovia monitorada (ou embarque aéreo) → Centro de distribuição → Hospital/farmácia → <b>Paciente</b>. É mais memorável que os quatro passos numerados de hoje.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/controlant-personas.jpg" alt="Dois cards lado a lado da Controlant, 'You manufacture the medicine' e 'You move, store or pack the medicine', ligados por um ícone de troca"></div>
+      <div class="info">
+        <span class="num">Para quem</span>
+        <h3>Dois perfis lado a lado</h3>
+        <span class="from">Referência: <a href="https://controlant.com/">Controlant</a></span>
+        <div><span class="tag">DS · feature-cards (adaptado)</span></div>
+        <h4>Como fica na BR Samor</h4>
+        <p>"<b>Você fabrica o medicamento</b>" (indústria: qualificação de fornecedor, relatório de temperatura, recall) e "<b>Você distribui ou atende o paciente</b>" (distribuidora, hospital, oncologia: urgência, Priority, Portador Exclusivo). Cada card tem três benefícios e um link para a cotação.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/worldcourier-video.jpg" alt="Bloco de vídeo da World Courier com o depoimento de uma paciente e a frase em destaque 'I remember noticing a little lump'"></div>
+      <div class="info">
+        <span class="num">Emoção</span>
+        <h3>Faixa "por trás de cada caixa, um paciente"</h3>
+        <span class="from">Referência: <a href="https://www.worldcourier.com/">World Courier</a></span>
+        <div><span class="tag tag--new">Novo</span></div>
+        <h4>Como fica na BR Samor</h4>
+        <p>Uma faixa larga com foto e uma frase curta: "Por trás de cada caixa de 2 a 8 °C existe alguém esperando o tratamento." Não precisa de vídeo; é uma pausa emocional antes do FAQ e da cotação.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/biocair-faq.jpg" alt="FAQ da Biocair: card azul-petróleo com o título 'FAQs' à esquerda e lista de perguntas em card branco à direita"></div>
+      <div class="info">
+        <span class="num">Dúvidas</span>
+        <h3>FAQ em card com título lateral</h3>
+        <span class="from">Referência: <a href="https://www.biocair.com/expertise/cold-chain">Biocair</a></span>
+        <div><span class="tag">DS · faq-accordion</span></div>
+        <p>Mantém o FAQ atual, mas em card sobre um fundo com textura sutil. A variante do design system já chega perto disso.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/girteka-cotacao.jpg" alt="Formulário de cotação da Girteka com campos de empresa e contato, seletores de tipo de carreta e botões de alternância entre carga cheia e fracionada"></div>
+      <div class="info">
+        <span class="num">Conversão</span>
+        <h3>Cotação com botões de escolha, sem selects</h3>
+        <span class="from">Referência: <a href="https://girteka.eu/pharmaceutical-and-healthcare-logistics/">Girteka</a></span>
+        <div><span class="tag">DS · form-lead-capture</span></div>
+        <h4>Como fica na BR Samor</h4>
+        <p>A faixa de temperatura vira botões clicáveis (2–8 °C · 15–25 °C · As duas) e a modalidade também (Dedicado · Fracionado · Urgente aéreo). Ao lado, um card escuro com quatro garantias. É mais rápido de preencher que selects.</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="shot"><img src="img/controlant-cta.jpg" alt="Seção de produtos da Controlant seguida de uma faixa azul-marinho com o título 'Fast forward to a zero-waste pharma supply chain'"></div>
+      <div class="info">
+        <span class="num">Fechamento</span>
+        <h3>CTA escuro de largura total e rodapé com certificações</h3>
+        <span class="from">Referência: <a href="https://controlant.com/">Controlant</a></span>
+        <div><span class="tag">DS · cta-banner + footer-full</span></div>
+        <p>Um título forte em azul-marinho e dois botões. O rodapé lista as credenciais (Anvisa/AFE, RNTRC, CNPJ) no canto, como a Controlant faz com ISO e GMP.</p>
+      </div>
+    </li>
+  </ol>
+
+  <h2 class="sec">Outras referências de estilo</h2>
+  <p class="lead">Não são seções para clonar inteiras, mas ajudam a decidir tom e acabamento.</p>
+  <div class="styles">
+    <figure><img src="img/controlant-cases.jpg" alt="Bento de cases da Controlant com números grandes (99,5%, 99,99%, 200+) e logos de farmacêuticas"><figcaption><b>Controlant · bento de cases.</b> Ótimo quando a BR Samor tiver dois ou três cases com números.</figcaption></figure>
+    <figure><img src="img/flexport-bento.jpg" alt="Bento da Flexport alternando fotos e números enormes (10%, 90%) com depoimento"><figcaption><b>Flexport · números enormes no bento.</b> Mistura foto, depoimento e percentual.</figcaption></figure>
+    <figure><img src="img/flexport-rede.jpg" alt="Mapa-múndi pontilhado em fundo azul-escuro da Flexport mostrando armazéns e escritórios"><figcaption><b>Flexport · mapa pontilhado escuro.</b> Alternativa ao mapa ilustrado para a rede de bases.</figcaption></figure>
+    <figure><img src="img/tive-logos.jpg" alt="Mural de logos de clientes em branco sobre fundo escuro, no site da Tive"><figcaption><b>Tive · mural de logos escuro.</b> Para parceiros e clientes, se o cliente autorizar.</figcaption></figure>
+    <figure><img src="img/biocair-faixas.jpg" alt="Lista de faixas de temperatura da Biocair, do ambiente controlado ao criogênico, com ícones"><figcaption><b>Biocair · faixas de temperatura em lista.</b> Forma compacta de mostrar as faixas.</figcaption></figure>
+    <figure><img src="img/worldcourier-numeros.jpg" alt="Faixa em gradiente roxo e magenta da World Courier com três números grandes"><figcaption><b>World Courier · faixa de números em gradiente.</b> Pode ser feita em azul-marinho e laranja.</figcaption></figure>
+    <figure><img src="img/einride-editorial.jpg" alt="Site da Einride com título editorial em fonte serifada grande sobre fundo branco e fotos de caminhões elétricos"><figcaption><b>Einride · tom editorial.</b> Tipografia grande e muito espaço em branco. Uma opção mais sofisticada.</figcaption></figure>
+    <figure><img src="img/tive-monitoramento.jpg" alt="Seção escura da Tive com texto sobre monitoramento especializado 24/7 e um alerta vermelho de temperatura alta"><figcaption><b>Tive · alerta de desvio.</b> Detalhe que pode entrar no card de telemetria.</figcaption></figure>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">Capturas feitas em 19/10/2026 nos sites públicos citados, só como referência interna de design. Não usar as imagens na página final.</div>
+</footer>
+
+</body>
+</html>
